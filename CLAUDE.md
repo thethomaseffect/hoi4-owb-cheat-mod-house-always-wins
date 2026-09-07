@@ -41,10 +41,25 @@ Deploy:
 
 - Replaces `.../mod/house_always_wins/`
 - Writes `.../mod/house_always_wins.mod` with `path` set
-- Skips `.git`, `.cursor`, `tools/`, `README.md`, `LICENSE`, and `CLAUDE.md`
-- Copies `descriptor.mod` and every HOI4 content folder
+- Skips `.git`, `.cursor`, `tools/`, `screenshots/`, `README.md`, `LICENSE`, `ASSETS_LICENCE.md`, and `CLAUDE.md`
+- Copies `descriptor.mod`, `thumbnail.png`, and every HOI4 content folder
 
 Override the destination with `--mods-directory` if needed.
+
+## Thumbnails and Workshop screenshots
+
+| Use | Path | Size | Notes |
+| --- | --- | --- | --- |
+| Launcher / Workshop preview | `thumbnail.png` (repo root, deployed) | **512×512** PNG, 1:1, under 1 MB | HOI4 rejects bad thumbnails silently. Paradox Mods also caps 1 MB. |
+| Workshop gallery | `screenshots/` (not deployed) | **1920×1080**, 16:9, under 1 MB | Drop source shots here. Do not put them in the mod folder. |
+
+After adding or replacing images:
+
+```
+python tools/resize_workshop_images.py
+```
+
+The script center-crops to the target aspect, scales with LANCZOS, and recompresses until the file is under 1 MB. `thumbnail.png` stays PNG. Screenshot format is kept (PNG or JPG).
 
 ## This mod
 
@@ -56,3 +71,8 @@ Override the destination with `--mods-directory` if needed.
 | Tags | Gameplay, Utilities |
 
 After the first deploy, enable **House Always Wins** in the launcher playset, below Old World Blues.
+
+## Licence
+
+- **MIT** ([LICENSE](LICENSE)): code, tools, and HOI4 script files (`common/`, `events/`, `interface/` scripts, and so on).
+- **CC0 1.0** ([ASSETS_LICENCE.md](ASSETS_LICENCE.md)): creative assets — `thumbnail.png`, `screenshots/`, `gfx/`, sound, and music. Adding an asset means it is released under CC0 and that the contributor has the right to do so.

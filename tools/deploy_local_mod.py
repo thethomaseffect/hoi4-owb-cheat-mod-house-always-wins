@@ -18,15 +18,18 @@ EXCLUDE_DIR_NAMES = {
     ".github",
     ".venv",
     "__pycache__",
+    "screenshots",
     "tools",
 }
 EXCLUDE_ROOT_FILES = {
     ".gitattributes",
     ".gitignore",
     "AGENTS.md",
+    "ASSETS_LICENCE.md",
     "CLAUDE.md",
     "LICENSE",
     "README.md",
+    "requirements.txt",
 }
 
 
