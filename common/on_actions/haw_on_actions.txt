@@ -1,0 +1,27 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = { is_ai = no }
+				add_ideas = haw_free_picks
+				haw_grant_gated_cheats = yes
+				if = {
+					limit = {
+						has_idea = haw_instant_intel
+						NOT = { has_country_flag = haw_intel_cheated }
+					}
+					remove_ideas = haw_instant_intel
+				}
+			}
+		}
+	}
+
+	on_research_finished = {
+		effect = {
+			if = {
+				limit = { is_ai = no }
+				haw_grant_gated_cheats = yes
+			}
+		}
+	}
+}

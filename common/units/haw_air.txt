@@ -1,0 +1,21 @@
+sub_units = {
+	haw_servebird = {
+		sprite = fighter_plane
+		priority = 1
+		ai_priority = 0
+		active = yes
+		type = { fighter cas tactical_bomber naval_bomber air_transport scout_plane }
+		need = { haw_servebird_equipment = 1 }
+		categories = {
+			category_fighter
+			category_cas
+			category_bomber
+			category_transport
+			category_spotter_plane
+			category_light_air
+			category_air_unit
+		}
+		land_air_wing_size = 50
+		carrier_air_wing_size = 10
+	}
+}

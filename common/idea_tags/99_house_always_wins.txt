@@ -1,0 +1,35 @@
+idea_categories = {
+	haw_policies = {
+		slot = haw_politics
+		slot = haw_construction
+		slot = haw_production
+		slot = haw_army
+		slot = haw_navy
+		slot = haw_air
+
+		cost = 0
+		removal_cost = 0
+	}
+	haw_companies = {
+		slot = haw_vehicle_firm
+		slot = haw_naval_firm
+		slot = haw_air_firm
+		slot = haw_materiel_firm
+		slot = haw_industry_firm
+		slot = haw_theorist
+
+		cost = 0
+		removal_cost = 0
+	}
+	haw_staff = {
+		slot = haw_advisor
+		slot = haw_advisor
+		slot = haw_advisor
+		slot = haw_command
+		slot = haw_command
+		slot = haw_command
+
+		cost = 0
+		removal_cost = 0
+	}
+}

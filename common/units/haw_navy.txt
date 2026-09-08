@@ -1,0 +1,37 @@
+sub_units = {
+	haw_house_screen = {
+		sprite = convoy
+		map_icon_category = ship
+		priority = 9
+		ai_priority = 0
+		active = yes
+		type = { screen_ship }
+		need = { haw_house_screen_hull = 1 }
+		categories = {
+			category_screen_ship
+		}
+		max_organisation = 200
+		supply_consumption = 0.01
+		critical_parts = { destroyed_ammo_storage broken_propeller on_fire rudder_jammed }
+		critical_part_damage_chance_mult = 0.1
+		hit_profile_mult = 0.2
+	}
+
+	haw_house_capital = {
+		sprite = convoy
+		map_icon_category = ship
+		priority = 9
+		ai_priority = 0
+		active = yes
+		type = { capital_ship }
+		need = { haw_house_capital_hull = 1 }
+		categories = {
+			category_capital_ship
+		}
+		max_organisation = 200
+		supply_consumption = 0.01
+		critical_parts = { rudder_jammed destroyed_ammo_storage broken_propeller on_fire }
+		critical_part_damage_chance_mult = 0.1
+		hit_profile_mult = 0.2
+	}
+}

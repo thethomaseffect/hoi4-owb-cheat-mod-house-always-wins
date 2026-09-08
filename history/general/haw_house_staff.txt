@@ -1,0 +1,272 @@
+every_possible_country = {
+	generate_character = {
+		token_base = haw_eco_ledger
+		name = haw_eco_ledger
+		portraits = {
+			civilian = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = economic_advisor
+			idea_token = haw_eco_ledger
+			ledger = civilian
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				consumer_goods_factor = -0.5
+				industrial_capacity_factory = 2.0
+				industrial_capacity_dockyard = 2.0
+				caps_flat_income_modifier = 250
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_eco_dividend
+		name = haw_eco_dividend
+		portraits = {
+			civilian = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = economic_advisor
+			idea_token = haw_eco_dividend
+			ledger = civilian
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				production_speed_buildings_factor = 2.0
+				local_resources_factor = 2.0
+				industry_repair_factor = 2.0
+				caps_income_modifier = 2.0
+				caps_country_trade_modifier = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_eco_payroll
+		name = haw_eco_payroll
+		portraits = {
+			civilian = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = economic_advisor
+			idea_token = haw_eco_payroll
+			ledger = civilian
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				political_power_gain = 2.0
+				research_speed_factor = 2.0
+				stability_factor = 0.5
+				caps_expense_modifier = -0.9
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_culture_etiquette
+		name = haw_culture_etiquette
+		portraits = {
+			civilian = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = cultural_advisor
+			idea_token = haw_culture_etiquette
+			ledger = civilian
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				stability_factor = 1.0
+				war_support_factor = 1.0
+				political_power_gain = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_culture_broadcast
+		name = haw_culture_broadcast
+		portraits = {
+			civilian = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = cultural_advisor
+			idea_token = haw_culture_broadcast
+			ledger = civilian
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				compliance_growth = 1.0
+				resistance_growth = -1.0
+				resistance_target = -0.5
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_culture_pageant
+		name = haw_culture_pageant
+		portraits = {
+			civilian = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = cultural_advisor
+			idea_token = haw_culture_pageant
+			ledger = civilian
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				research_speed_factor = 1.0
+				drift_defence_factor = 2.0
+				improve_relations_maintain_cost_factor = -0.9
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_centurion_coffee
+		name = haw_centurion_coffee
+		portraits = {
+			army = {
+				large = "GFX_portrait_haw_servebot"
+				small = "GFX_idea_haw_handy"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = haw_char_centurion_coffee
+			ledger = army
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			traits = { haw_army_chief }
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_admiral_suds
+		name = haw_admiral_suds
+		portraits = {
+			army = {
+				large = "GFX_portrait_haw_servebot"
+				small = "GFX_idea_haw_handy"
+			}
+			navy = {
+				large = "GFX_portrait_haw_servebot"
+				small = "GFX_idea_haw_handy"
+			}
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = haw_char_admiral_suds
+			ledger = navy
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			traits = { haw_navy_chief }
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_marshall_mops
+		name = haw_marshall_mops
+		portraits = {
+			army = {
+				large = "GFX_portrait_haw_servebot"
+				small = "GFX_idea_haw_handy"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = haw_char_marshall_mops
+			ledger = air
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			traits = { haw_air_chief }
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_major_brush
+		name = haw_major_brush
+		portraits = {
+			army = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = haw_major_brush
+			ledger = army
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				army_attack_factor = 2.0
+				army_org_factor = 2.0
+				planning_speed = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_colonel_sponge
+		name = haw_colonel_sponge
+		portraits = {
+			army = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = haw_colonel_sponge
+			ledger = army
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			modifier = {
+				army_defence_factor = 2.0
+				max_dig_in = 50
+				attrition = -0.9
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+	generate_character = {
+		token_base = haw_professor_clank
+		name = haw_professor_clank
+		portraits = {
+			army = { small = "GFX_idea_haw_handy" }
+		}
+		advisor = {
+			slot = theorist
+			idea_token = haw_char_professor_clank
+			ledger = army
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			can_be_fired = yes
+			traits = { haw_theorist }
+			research_bonus = {
+				land_doctrine = 1.0
+				naval_doctrine = 1.0
+				air_doctrine = 1.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+}

@@ -1,0 +1,151 @@
+ideas = {
+	haw_vehicle_firm = {
+		designer = yes
+		haw_handy_hulls = {
+			picture = haw_handy
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = { armor = 1.0 }
+			traits = { haw_vehicle_firm }
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_naval_firm = {
+		designer = yes
+		haw_handy_keels = {
+			picture = haw_handy
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = { naval_equipment = 1.0 }
+			traits = { haw_naval_firm }
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_air_firm = {
+		designer = yes
+		haw_handy_rotors = {
+			picture = haw_handy
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = { air_equipment = 1.0 }
+			traits = { haw_air_firm }
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_materiel_firm = {
+		designer = yes
+		haw_handy_munitions = {
+			picture = haw_handy
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = {
+				artillery = 1.0
+				infantry_weapons = 1.0
+			}
+			traits = { haw_materiel_firm }
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_industry_firm = {
+		haw_handy_works = {
+			picture = haw_handy
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = {
+				industry = 1.0
+				electronics = 1.0
+			}
+			traits = { haw_industry_firm }
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_theorist = {
+		haw_professor_clank = {
+			picture = haw_handy
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = {
+				land_doctrine = 1.0
+				naval_doctrine = 1.0
+				air_doctrine = 1.0
+			}
+			traits = { haw_theorist }
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_advisor = {
+		haw_mister_scoop = {
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			picture = haw_handy
+			modifier = {
+				political_power_gain = 2.0
+				stability_factor = 1.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+		haw_agent_vacuum = {
+			allowed = {
+				has_dlc = "La Resistance"
+			}
+			available = {
+				has_intelligence_agency = yes
+			}
+			cost = 0
+			removal_cost = 0
+			picture = haw_handy
+			traits = { haw_intel_bot }
+			ai_will_do = { factor = 0 }
+		}
+		haw_doctor_dustpan = {
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			picture = haw_handy
+			modifier = {
+				research_speed_factor = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_command = {
+		haw_centurion_coffee = {
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			picture = haw_handy
+			traits = { haw_army_chief }
+			ai_will_do = { factor = 0 }
+		}
+		haw_admiral_suds = {
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			picture = haw_handy
+			traits = { haw_navy_chief }
+			ai_will_do = { factor = 0 }
+		}
+		haw_marshall_mops = {
+			allowed = { always = yes }
+			cost = 0
+			removal_cost = 0
+			picture = haw_handy
+			traits = { haw_air_chief }
+			ai_will_do = { factor = 0 }
+		}
+	}
+}

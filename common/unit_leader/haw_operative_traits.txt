@@ -1,0 +1,32 @@
+leader_traits = {
+	haw_operative = {
+		type = operative
+		trait_type = personality_trait
+		new_commander_weight = { factor = 0 }
+		modifier = {
+			own_operative_detection_chance_factor = -0.9
+			own_operative_detection_chance = -0.9
+			own_operative_capture_chance_factor = -0.9
+			enemy_operative_intel_extraction_rate = -0.9
+			intelligence_agency_defense = 5.0
+			intel_network_gain_factor = 5.0
+			operation_cost = -0.9
+			operation_outcome = 5.0
+			operation_risk = -0.9
+			operation_infiltrate_outcome = 5.0
+			operation_infiltrate_risk = -0.9
+			operation_steal_tech_outcome = 5.0
+			operation_steal_tech_risk = -0.9
+			operation_capture_cipher_outcome = 5.0
+			operation_capture_cipher_risk = -0.9
+			target_sabotage_factor = 5.0
+			target_sabotage_risk = -0.9
+			target_sabotage_cost = -0.9
+			operation_rescue_operative_risk = -0.9
+			operation_rescue_operative_cost = -0.9
+			control_trade_mission_factor = 5.0
+			diplomatic_pressure_mission_factor = 5.0
+			boost_resistance_factor = 5.0
+		}
+	}
+}

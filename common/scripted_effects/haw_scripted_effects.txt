@@ -1,0 +1,631 @@
+haw_add_caps = {
+	# OWB add_caps clamps to 25000. Set exactly to that ceiling.
+	set_temp_variable = { caps_to_add = 25000 }
+	subtract_from_temp_variable = { caps_to_add = caps_number_display }
+	add_caps = yes
+}
+
+haw_enable_all_nodes = {
+	hard_enable_all_nodes = yes
+}
+
+haw_max_all_nodes = {
+	for_each_scope_loop = {
+		array = state_controlled_nodes
+		set_variable = { node_level = 10 }
+		set_variable = { node_progress = 10 }
+		set_variable = { economic_development_level = 2 }
+		update_node_base_value = yes
+		update_node_value = yes
+	}
+	force_update_nodes = yes
+}
+
+haw_prep_and_core_all = {
+	every_owned_state = {
+		limit = {
+			NOT = { is_core_of = ROOT }
+		}
+		add_compliance = 100
+		set_resistance = 0
+	}
+	every_owned_state = {
+		limit = {
+			NOT = { is_core_of = ROOT }
+		}
+		add_core_effect = yes
+	}
+	fallout_update_custom_map_modes_effects = yes
+}
+
+haw_add_state_buildings = {
+	every_owned_state = {
+		limit = { is_controlled_by = ROOT }
+		add_building_construction = {
+			type = infrastructure
+			level = 10
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = air_base
+			level = 10
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = radar_station
+			level = 6
+			instant_build = yes
+		}
+	}
+}
+
+haw_add_forts_supply_roads = {
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		every_owned_state = {
+			limit = { is_controlled_by = ROOT }
+			add_building_construction = {
+				type = supply_node
+				level = 1
+				instant_build = yes
+				province = {
+					all_provinces = yes
+				}
+			}
+		}
+	}
+}
+
+haw_finish_scavenging_prep = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = scavenging_enabled }
+			NOT = { has_country_flag = scavenging_disabled }
+		}
+		remove_decision = begin_scavenging_program_wtt
+		country_event = scavenge.15
+	}
+	else = {
+		country_event = haw.6
+	}
+}
+
+haw_complete_scavenging_expedition = {
+	if = {
+		limit = {
+			OR = {
+				has_active_mission = scavenging_mission_automated
+				has_country_flag = scavenging_underway
+			}
+		}
+		# Always succeed. Fire OWB's real success event so the reward popup shows.
+		if = {
+			limit = { has_country_flag = giving_scavengers_pa }
+			country_event = scavenge.9
+		}
+		else_if = {
+			limit = { has_country_flag = giving_scavengers_vehicles }
+			country_event = scavenge.5
+		}
+		else_if = {
+			limit = { has_country_flag = giving_scavengers_robots }
+			country_event = scavenge.17
+		}
+		else_if = {
+			limit = { has_country_flag = giving_scavengers_aircraft }
+			country_event = scavenge.20
+		}
+		else_if = {
+			limit = { has_country_flag = giving_scavengers_beasts }
+			country_event = scavenge.23
+		}
+		else = {
+			country_event = scavenge.1
+		}
+		clr_country_flag = scavenging_underway
+		remove_mission = scavenging_mission_automated
+	}
+	else = {
+		country_event = haw.6
+	}
+}
+
+haw_justify_all_neighbors = {
+	every_neighbor_country = {
+		limit = {
+			NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+			NOT = { tag = ROOT }
+		}
+		ROOT = {
+			create_wargoal = {
+				type = annex_everything
+				target = PREV
+			}
+		}
+	}
+}
+
+haw_unlock_available_tech_levels = {
+	set_technology = {
+		popup = no
+		infantry_tech_level_tribal = 1
+		infantry_tech_level_settler = 1
+		infantry_tech_level_scientific = 1
+		power_armour_tech_level_tribal = 1
+		power_armour_tech_level_settler = 1
+		power_armour_tech_level_scientific = 1
+		special_forces_tech_level_tribal = 1
+		special_forces_tech_level_settler = 1
+		special_forces_tech_level_scientific = 1
+		support_tech_level_tribal = 1
+		support_tech_level_settler = 1
+		support_tech_level_scientific = 1
+		vehicles_tech_level_tribal = 1
+		vehicles_tech_level_settler = 1
+		vehicles_tech_level_scientific = 1
+		robotics_tech_level_tribal = 1
+		robotics_tech_level_settler = 1
+		robotics_tech_level_scientific = 1
+		creatures_tech_level_tribal = 1
+		creatures_tech_level_settler = 1
+		creatures_tech_level_scientific = 1
+		air_tech_level_tribal = 1
+		air_tech_level_settler = 1
+		air_tech_level_scientific = 1
+		naval_tech_level_tribal = 1
+		naval_tech_level_settler = 1
+		naval_tech_level_scientific = 1
+		tools_tech_level_tribal = 1
+		tools_tech_level_settler = 1
+		tools_tech_level_scientific = 1
+		electronics_tech_level_tribal = 1
+		electronics_tech_level_settler = 1
+		electronics_tech_level_scientific = 1
+		habitation_tech_level_tribal = 1
+		habitation_tech_level_settler = 1
+		habitation_tech_level_scientific = 1
+		exploitation_tech_level_tribal = 1
+		exploitation_tech_level_settler = 1
+		exploitation_tech_level_scientific = 1
+	}
+}
+
+haw_add_state_resources = {
+	every_owned_state = {
+		limit = { is_controlled_by = ROOT }
+		add_resource = { type = water amount = 200 }
+		add_resource = { type = energy amount = 200 }
+		add_resource = { type = metal amount = 200 }
+		add_resource = { type = composites amount = 200 }
+		add_resource = { type = circuitry amount = 200 }
+		add_resource = { type = advanced amount = 200 }
+	}
+}
+
+haw_max_trader_influence = {
+	set_temp_variable = { org_influence_amount = 300 }
+	set_temp_variable = { org_selector = 1 }
+	organization_add_influence = yes
+	set_temp_variable = { org_selector = 2 }
+	organization_add_influence = yes
+	set_temp_variable = { org_selector = 3 }
+	organization_add_influence = yes
+	set_temp_variable = { org_selector = 4 }
+	organization_add_influence = yes
+	set_temp_variable = { org_selector = 5 }
+	organization_add_influence = yes
+	set_temp_variable = { org_selector = 6 }
+	organization_add_influence = yes
+}
+
+haw_add_research_slot_safe = {
+	if = {
+		limit = { amount_research_slots < 5 }
+		set_research_slots = 5
+	}
+}
+
+haw_reduce_subject_autonomy = {
+	every_subject_country = {
+		add_autonomy_score = {
+			value = -10000
+		}
+		add_autonomy_ratio = {
+			value = -1
+		}
+	}
+	add_political_power = 200
+}
+
+haw_grant_gated_cheats = {
+	if = {
+		limit = {
+			OR = {
+				has_tech = fireteam_weaponry_tech
+				has_tech = demolitions_weaponry_tech
+			}
+		}
+		set_technology = {
+			haw_servebot_infantry_unlock = 1
+			popup = no
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_tech = bike_tech_1
+				has_tech = light_motorized_equipment_vehicle_tech_1
+				has_tech = heavy_motorized_equipment_vehicle_tech_1
+			}
+		}
+		set_technology = {
+			haw_servebot_mobile_unlock = 1
+			popup = no
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_tech = robot_makeshift_automatons_tech
+				has_tech = robot_lifter_equipment_tech
+				has_tech = robot_command_equipment_tech_1
+			}
+		}
+		set_technology = {
+			haw_servebot_robots_unlock = 1
+			popup = no
+		}
+	}
+	if = {
+		limit = { has_tech = glider_tech }
+		set_technology = {
+			haw_servebird_unlock = 1
+			popup = no
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+			OR = {
+				has_tech = nautics_tech_1
+				has_tech = light_navy_hull_tech_1
+				has_tech = medium_navy_hull_tech_1
+				has_tech = heavy_navy_hull_tech_1
+			}
+		}
+		set_technology = {
+			haw_house_navy_unlock = 1
+			popup = no
+		}
+	}
+}
+
+haw_stockpile_infantry = {
+	haw_stockpile_unlocked = yes
+	add_equipment_to_stockpile = {
+		type = haw_servebird_equipment
+		amount = 10000
+		producer = ROOT
+	}
+	add_equipment_to_stockpile = {
+		type = haw_house_screen_hull
+		amount = 10000
+		producer = ROOT
+	}
+	add_equipment_to_stockpile = {
+		type = haw_house_capital_hull
+		amount = 10000
+		producer = ROOT
+	}
+}
+
+haw_max_stability_war_support = {
+	add_stability = 1
+	add_war_support = 1
+}
+
+haw_max_power_and_xp = {
+	# Caps 25000, PP 2000, XP 650, CP current max_command_power. All game-clamped.
+	haw_add_caps = yes
+	add_political_power = 2000
+	add_command_power = 2000
+	army_experience = 650
+	navy_experience = 650
+	air_experience = 650
+}
+
+haw_add_army_buffs = {
+	add_ideas = haw_army_most
+	add_ideas = haw_navy_most
+	add_ideas = haw_air_most
+	add_ideas = haw_inject_mobilization
+}
+
+haw_add_convoys = {
+	add_equipment_to_stockpile = {
+		type = convoy
+		amount = 10000
+		producer = ROOT
+	}
+}
+
+haw_add_officer_spirits = {
+	if = {
+		limit = { has_dlc = "No Step Back" }
+		add_ideas = haw_spirit_academy
+		add_ideas = haw_spirit_army
+		add_ideas = haw_spirit_division
+		add_ideas = haw_spirit_naval_academy
+		add_ideas = haw_spirit_navy
+		add_ideas = haw_spirit_naval_command
+		add_ideas = haw_spirit_air_academy
+		add_ideas = haw_spirit_air
+		add_ideas = haw_spirit_air_command
+	}
+}
+
+haw_spawn_handy_commanders = {
+	create_corps_commander = {
+		name = "Captain Coffee"
+		GFX = GFX_portrait_haw_servebot
+		skill = 9
+		attack_skill = 9
+		defense_skill = 9
+		planning_skill = 9
+		logistics_skill = 9
+		traits = {
+			# Vanilla command
+			old_guard brilliant_strategist inflexible_strategist politically_connected brave war_hero career_officer trait_cautious media_personality infantry_officer cavalry_officer armor_officer engineer_officer irregulars_officer militias_officer jaeger organizer cavalry_leader infantry_leader skilled_staffer trickster adaptable winter_expert trait_engineer panzer_leader commando panzer_expert combined_arms_expert cavalry_expert scavenger infantry_expert ambusher camouflage_expert guerilla_fighter
+			# Terrain
+			desert_fox desert_fox_II swamp_fox swamp_fox_II hill_fighter hill_fighter_II trait_mountaineer trait_mountaineer_II urban_assault_specialist urban_assault_specialist_II ranger ranger_II jungle_rat jungle_rat_II winter_specialist winter_specialist_II rad_rat rad_rat_II fortress_buster skirmisher paratrooper air_force_liaison naval_invader invader_ii naval_liason expert_improviser logistics_wizard
+			# OWB perks
+			strong_trait rooted_trait pain_train_trait strong_back_trait perceptive_trait awareness_trait sniper_trait night_person_trait enduring_trait survivalist_trait life_giver_trait aqua_boy_trait charismatic_trait local_leader_trait animal_friend_trait inspirational_trait intelligent_trait gun_nut_trait robotics_expert_trait nerd_rage_trait agile_trait gunslinger_trait lead_foot_trait ninja_trait lucky_trait idiot_savant_trait mysterious_stranger_trait bloody_mess_trait savage_leader_trait observant_leader_trait tough_leader_trait loved_leader_trait cunning_leader_trait nimble_leader_trait fortunate_leader_trait flexible_trait negotiator_trait cult_of_personality_trait smooth_talker_trait ferocious_loyalty_trait vigilant_recycler_trait junk_rounds_trait melee_hacker_trait light_touch_trait heavyweight_trait fight_the_power_trait sneering_imperialist_trait ranger_trait antivenom_trait one_man_army_trait
+			# OWB faction-generic
+			commando_trait tight_nuts_trait tech_wizard_trait targeting_computer_trait hot_blooded_trait hoarder_trait built_to_destroy_trait fast_metabolism skilled_trait bruiser_trait fast_shot_trait finesse_trait pyromaniac_trait camouflage_trait xenotech_expert_trait fortune_finder_trait
+		}
+	}
+	create_field_marshal = {
+		name = "Field Marshal Filter"
+		GFX = GFX_portrait_haw_servebot
+		skill = 9
+		attack_skill = 9
+		defense_skill = 9
+		planning_skill = 9
+		logistics_skill = 9
+		traits = {
+			old_guard brilliant_strategist inflexible_strategist politically_connected brave war_hero career_officer trait_cautious media_personality infantry_officer cavalry_officer armor_officer engineer_officer irregulars_officer militias_officer jaeger organizer cavalry_leader infantry_leader skilled_staffer trickster adaptable winter_expert trait_engineer panzer_leader commando panzer_expert combined_arms_expert cavalry_expert scavenger infantry_expert ambusher camouflage_expert guerilla_fighter
+			offensive_doctrine defensive_doctrine fast_planner thorough_planner unyielding_defender aggressive_assaulter organisational_leader inspirational_leader expert_delegator
+			desert_fox desert_fox_II swamp_fox swamp_fox_II hill_fighter hill_fighter_II trait_mountaineer trait_mountaineer_II urban_assault_specialist urban_assault_specialist_II ranger ranger_II jungle_rat jungle_rat_II winter_specialist winter_specialist_II rad_rat rad_rat_II fortress_buster skirmisher paratrooper air_force_liaison naval_invader invader_ii naval_liason expert_improviser logistics_wizard
+			strong_trait rooted_trait pain_train_trait strong_back_trait perceptive_trait awareness_trait sniper_trait night_person_trait enduring_trait survivalist_trait life_giver_trait aqua_boy_trait charismatic_trait local_leader_trait animal_friend_trait inspirational_trait intelligent_trait gun_nut_trait robotics_expert_trait nerd_rage_trait agile_trait gunslinger_trait lead_foot_trait ninja_trait lucky_trait idiot_savant_trait mysterious_stranger_trait bloody_mess_trait savage_leader_trait observant_leader_trait tough_leader_trait loved_leader_trait cunning_leader_trait nimble_leader_trait fortunate_leader_trait flexible_trait negotiator_trait cult_of_personality_trait smooth_talker_trait ferocious_loyalty_trait vigilant_recycler_trait junk_rounds_trait melee_hacker_trait light_touch_trait heavyweight_trait fight_the_power_trait sneering_imperialist_trait ranger_trait antivenom_trait one_man_army_trait
+			commando_trait tight_nuts_trait tech_wizard_trait targeting_computer_trait hot_blooded_trait hoarder_trait built_to_destroy_trait fast_metabolism skilled_trait bruiser_trait fast_shot_trait finesse_trait pyromaniac_trait camouflage_trait xenotech_expert_trait fortune_finder_trait
+		}
+	}
+	create_navy_leader = {
+		name = "Admiral Suds"
+		GFX = GFX_portrait_haw_servebot
+		skill = 9
+		attack_skill = 9
+		defense_skill = 9
+		maneuvering_skill = 9
+		coordination_skill = 9
+		traits = {
+			seawolf fleet_protector blockade_runner superior_tactician spotter fly_swatter ironside air_controller silent_hunter torpedo_expert lancer destroyer_leader loading_drill_master hunter_killer cruiser_captain search_pattern_expert lone_wolf concealment_expert mine_sweeper mine_layer smoke_screen_expert big_guns_expert ground_pounder safety_first marksman crisis_magician flight_deck_manager fighter_director
+			arctic_water_expert inshore_fighter blue_water_expert green_water_expert
+			old_guard_navy gentlemanly gunnery_expert chief_engineer navy_media_personality bold navy_career_officer battleship_adherent aviation_enthusiast naval_lineage
+			submarine_officer destroyer_officer cruiser_officer heavy_ship_officer carrier_officer
+		}
+	}
+	add_ace = {
+		name = "Wing"
+		surname = "Duster"
+		callsign = "Toast"
+		type = fighter_genius
+	}
+}
+
+haw_flw_take_initiative = {
+	if = {
+		limit = { original_tag = ATE }
+		set_variable = { GLOBAL.flw_attacker_tag = ATE.id }
+		set_variable = { GLOBAL.flw_defender_tag = ITZ.id }
+	}
+	else = {
+		set_variable = { GLOBAL.flw_attacker_tag = ITZ.id }
+		set_variable = { GLOBAL.flw_defender_tag = ATE.id }
+	}
+}
+
+haw_flw_skip_ceasefire = {
+	remove_mission = flower_war_peacetime_countdown
+	activate_mission = flower_war_gotime_countdown
+	if = {
+		limit = { original_tag = ATE }
+		ITZ = {
+			remove_mission = flower_war_peacetime_countdown
+			activate_mission = flower_war_gotime_countdown
+		}
+	}
+	else = {
+		ATE = {
+			remove_mission = flower_war_peacetime_countdown
+			activate_mission = flower_war_gotime_countdown
+		}
+	}
+}
+
+haw_rrg_max_mora = {
+	increase_opinion_of_senator_a = yes
+	increase_opinion_of_senator_a = yes
+	increase_opinion_of_senator_a = yes
+	increase_opinion_of_deputy_a = yes
+	increase_opinion_of_deputy_a = yes
+	increase_opinion_of_deputy_a = yes
+	set_variable = { rrg_pp_support = 0.3 }
+	force_update_dynamic_modifier = yes
+}
+
+haw_rrg_max_guerra = {
+	increase_opinion_of_senator_b = yes
+	increase_opinion_of_senator_b = yes
+	increase_opinion_of_senator_b = yes
+	increase_opinion_of_deputy_b = yes
+	increase_opinion_of_deputy_b = yes
+	increase_opinion_of_deputy_b = yes
+	set_variable = { rrg_pp_support = 0.3 }
+	force_update_dynamic_modifier = yes
+}
+
+haw_rrg_max_rosado = {
+	increase_opinion_of_senator_c = yes
+	increase_opinion_of_senator_c = yes
+	increase_opinion_of_senator_c = yes
+	increase_opinion_of_deputy_c = yes
+	increase_opinion_of_deputy_c = yes
+	increase_opinion_of_deputy_c = yes
+	set_variable = { rrg_pp_support = 0.3 }
+	force_update_dynamic_modifier = yes
+}
+
+haw_mlt_add_eggs = {
+	add_to_variable = { mlt_eggs = 500 }
+}
+
+haw_mlt_hatch_eggs = {
+	add_manpower = mlt_eggs
+	set_variable = { mlt_eggs = 0 }
+}
+
+haw_ttm_max_nursery = {
+	set_temp_variable = { ttm_comp_power_to_add = 400 }
+	subtract_from_temp_variable = { ttm_comp_power_to_add = ttm_computational_power }
+	ttm_add_to_computational_power = yes
+	set_temp_variable = { ttm_satellites_to_add_temp = 300 }
+	subtract_from_temp_variable = { ttm_satellites_to_add_temp = ttm_satellite_network }
+	ttm_add_to_satellite_network = yes
+}
+
+haw_bos_add_slots = {
+	set_temp_variable = { BOS_underground_construction_slots_to_add = 5 }
+	bos_add_underground_construction_slots = yes
+}
+
+haw_bos_zero_tension = {
+	set_temp_variable = { BOS_tension_to_add = -100 }
+	bos_change_tension = yes
+}
+
+haw_brk_clear_raid = {
+	clr_global_flag = BRK_current_generic_raid
+}
+
+haw_world_tension_max = {
+	add_named_threat = {
+		threat = 100
+		name = haw_threat_max
+	}
+}
+
+haw_world_tension_zero = {
+	add_named_threat = {
+		threat = -100
+		name = haw_threat_min
+	}
+	add_threat = -100
+}
+
+haw_create_house_operative = {
+	create_operative_leader = {
+		GFX = GFX_portrait_haw_servebot
+		gender = male
+		skill = 50
+		traits = { haw_operative operative_intensive_training operative_gecko operative_smooth_talker operative_ninja operative_terryfing_presence operative_heavyweight operative_lockpick operative_barter operative_silent_running operative_mad_bomber operative_frumentarius operative_cartel_agent operative_commando operative_seducer operative_infiltrator operative_master_interrogator operative_linguist operative_tough operative_safe_cracker operative_well_groomed operative_natural_orator operative_escape_artist operative_demolition_expert }
+		bypass_recruitment = no
+		available_to_spy_master = yes
+	}
+}
+
+haw_spawn_house_operatives = {
+	haw_create_house_operative = yes
+	haw_create_house_operative = yes
+	haw_create_house_operative = yes
+	haw_create_house_operative = yes
+	haw_create_house_operative = yes
+	haw_create_house_operative = yes
+	haw_create_house_operative = yes
+	haw_create_house_operative = yes
+	every_character = {
+		limit = {
+			is_operative = yes
+			has_trait = haw_operative
+		}
+		add_nationality = ROOT
+	}
+}
+
+haw_upgrade_house_agency = {
+	haw_add_caps = yes
+	set_technology = {
+		popup = no
+		communication_engineering_2 = 1
+		electronic_engineering_2 = 1
+		demolitions_weaponry_tech = 1
+		med_company_tech_1 = 1
+		spec_ops_equipment_tech_1 = 1
+	}
+	upgrade_intelligence_agency = upgrade_economy_civilian
+	upgrade_intelligence_agency = upgrade_army_department
+	upgrade_intelligence_agency = upgrade_naval_department
+	upgrade_intelligence_agency = upgrade_airforce_department
+	upgrade_intelligence_agency = upgrade_passive_defense
+	upgrade_intelligence_agency = upgrade_passive_defense
+	upgrade_intelligence_agency = upgrade_passive_defense
+	upgrade_intelligence_agency = upgrade_passive_defense
+	upgrade_intelligence_agency = upgrade_anti_partisan
+	upgrade_intelligence_agency = upgrade_anti_partisan
+	upgrade_intelligence_agency = upgrade_blueprint_stealing
+	upgrade_intelligence_agency = upgrade_portable_radios
+	upgrade_intelligence_agency = upgrade_invisible_ink
+	upgrade_intelligence_agency = upgrade_plastic_explosives
+	upgrade_intelligence_agency = upgrade_suicide_pills
+	upgrade_intelligence_agency = upgrade_training_centers
+	upgrade_intelligence_agency = upgrade_commando_training
+	upgrade_intelligence_agency = upgrade_interrogation_techniques
+	upgrade_intelligence_agency = upgrade_diplo_training
+	upgrade_intelligence_agency = upgrade_form_department
+	upgrade_intelligence_agency = upgrade_decryption_boost
+	upgrade_intelligence_agency = upgrade_decryption_boost
+	upgrade_intelligence_agency = upgrade_decryption_boost_2
+	upgrade_intelligence_agency = upgrade_decryption_boost_2
+	upgrade_intelligence_agency = upgrade_decryption_boost_2
+	upgrade_intelligence_agency = upgrade_crypto_strength
+	upgrade_intelligence_agency = upgrade_crypto_strength
+	upgrade_intelligence_agency = upgrade_crypto_strength_2
+	upgrade_intelligence_agency = upgrade_crypto_strength_2
+	upgrade_intelligence_agency = upgrade_crypto_strength_2
+}
+
+haw_setup_intel = {
+	if = {
+		limit = { has_dlc = "La Resistance" }
+		set_country_flag = haw_intel_cheated
+		if = {
+			limit = { NOT = { has_idea = haw_instant_intel } }
+			add_ideas = haw_instant_intel
+		}
+		if = {
+			limit = { NOT = { has_intelligence_agency = yes } }
+			create_intelligence_agency = yes
+		}
+		if = {
+			limit = { NOT = { has_country_flag = haw_ops_spawned } }
+			haw_spawn_house_operatives = yes
+			set_country_flag = haw_ops_spawned
+		}
+		if = {
+			limit = { NOT = { has_country_flag = haw_agency_maxed } }
+			haw_upgrade_house_agency = yes
+			set_country_flag = haw_agency_maxed
+		}
+	}
+}

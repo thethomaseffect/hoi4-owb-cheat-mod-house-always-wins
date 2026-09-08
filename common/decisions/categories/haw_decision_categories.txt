@@ -1,0 +1,7 @@
+haw_decisions = {
+	icon = generic_political_actions
+
+	allowed = {
+		always = yes
+	}
+}

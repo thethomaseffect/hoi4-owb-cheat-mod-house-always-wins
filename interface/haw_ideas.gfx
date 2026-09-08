@@ -1,0 +1,14 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_idea_haw_handy"
+		texturefile = "gfx/interface/ideas/haw_handy.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_haw_servebot"
+		texturefile = "gfx/leaders/HAW/portrait_haw_servebot.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_haw_blank"
+		texturefile = "gfx/interface/ideas/haw_blank.dds"
+	}
+}

@@ -1,0 +1,392 @@
+add_namespace = haw
+
+country_event = {
+	id = haw.1
+	title = haw.1.t
+	desc = haw.1.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.1.a
+		country_event = haw.2
+	}
+	option = {
+		name = haw.1.b
+		country_event = haw.3
+	}
+	option = {
+		name = haw.1.c
+		country_event = haw.4
+	}
+	option = {
+		name = haw.1.scav
+		country_event = haw.6
+	}
+	option = {
+		name = haw.1.misc
+		country_event = haw.5
+	}
+	option = {
+		name = haw.1.close
+	}
+}
+
+country_event = {
+	id = haw.2
+	title = haw.2.t
+	desc = haw.2.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.2.b
+		haw_enable_all_nodes = yes
+		country_event = haw.2
+	}
+	option = {
+		name = haw.2.c
+		haw_max_all_nodes = yes
+		country_event = haw.2
+	}
+	option = {
+		name = haw.2.traders
+		haw_max_trader_influence = yes
+		country_event = haw.2
+	}
+	option = {
+		name = haw.2.e
+		haw_add_state_resources = yes
+		country_event = haw.2
+	}
+	option = {
+		name = haw.2.f
+		country_event = haw.1
+	}
+}
+
+country_event = {
+	id = haw.3
+	title = haw.3.t
+	desc = haw.3.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.3.a
+		haw_prep_and_core_all = yes
+		country_event = haw.3
+	}
+	option = {
+		name = haw.3.b
+		haw_add_state_buildings = yes
+		country_event = haw.3
+	}
+	option = {
+		name = haw.3.fortify
+		haw_add_forts_supply_roads = yes
+		country_event = haw.3
+	}
+	option = {
+		name = haw.3.c
+		haw_justify_all_neighbors = yes
+		country_event = haw.3
+	}
+	option = {
+		name = haw.3.autonomy
+		haw_reduce_subject_autonomy = yes
+		country_event = haw.3
+	}
+	option = {
+		name = haw.3.e
+		capital_scope = {
+			teleport_armies = {
+				limit = {
+					is_exiled_in = ROOT
+				}
+			}
+		}
+		country_event = haw.3
+	}
+	option = {
+		name = haw.3.f
+		country_event = haw.1
+	}
+}
+
+country_event = {
+	id = haw.4
+	title = haw.4.t
+	desc = haw.4.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.4.levels
+		haw_unlock_available_tech_levels = yes
+		country_event = haw.4
+	}
+	option = {
+		name = haw.4.normal
+		haw_unlock_available_normal_techs = yes
+		country_event = haw.4
+	}
+	option = {
+		name = haw.4.unique
+		haw_unlock_unique_techs = yes
+		country_event = haw.4
+	}
+	option = {
+		name = haw.4.rewards
+		haw_unlock_reward_techs = yes
+		country_event = haw.4
+	}
+	option = {
+		name = haw.4.doctrines
+		haw_unlock_all_doctrines = yes
+		country_event = haw.4
+	}
+	option = {
+		name = haw.4.slots
+		haw_add_research_slot_safe = yes
+		country_event = haw.4
+	}
+	option = {
+		name = haw.4.back
+		country_event = haw.1
+	}
+}
+
+country_event = {
+	id = haw.5
+	title = haw.5.t
+	desc = haw.5.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.5.army_buffs
+		haw_add_army_buffs = yes
+		country_event = haw.5
+	}
+	option = {
+		name = haw.5.guns
+		haw_stockpile_unlocked = yes
+		country_event = haw.5
+	}
+	option = {
+		name = haw.5.power
+		haw_max_power_and_xp = yes
+		country_event = haw.5
+	}
+	option = {
+		name = haw.5.stability
+		haw_max_stability_war_support = yes
+		country_event = haw.5
+	}
+	option = {
+		name = haw.5.commanders
+		haw_spawn_handy_commanders = yes
+		country_event = haw.5
+	}
+	option = {
+		name = haw.next
+		country_event = haw.7
+	}
+	option = {
+		name = haw.5.back
+		country_event = haw.1
+	}
+}
+
+country_event = {
+	id = haw.7
+	title = haw.5.t
+	desc = haw.7.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.7.tension_max
+		haw_world_tension_max = yes
+		country_event = haw.7
+	}
+	option = {
+		name = haw.7.tension_zero
+		haw_world_tension_zero = yes
+		country_event = haw.7
+	}
+	option = {
+		name = haw.7.convoys
+		haw_add_convoys = yes
+		country_event = haw.7
+	}
+	option = {
+		name = haw.7.spirits
+		trigger = { has_dlc = "No Step Back" }
+		haw_add_officer_spirits = yes
+		country_event = haw.7
+	}
+	option = {
+		name = haw.7.intel
+		trigger = { has_dlc = "La Resistance" }
+		haw_setup_intel = yes
+		country_event = haw.7
+	}
+	option = {
+		name = haw.prev
+		country_event = haw.5
+	}
+	option = {
+		name = haw.5.back
+		country_event = haw.1
+	}
+}
+
+country_event = {
+	id = haw.6
+	title = haw.6.t
+	desc = haw.6.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.6.prep
+		haw_finish_scavenging_prep = yes
+	}
+	option = {
+		name = haw.6.complete
+		haw_complete_scavenging_expedition = yes
+	}
+	option = {
+		name = haw.6.back
+		country_event = haw.1
+	}
+}
+
+country_event = {
+	id = haw.10
+	title = haw.10.t
+	desc = haw.10.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.10.initiative
+		haw_flw_take_initiative = yes
+		country_event = haw.10
+	}
+	option = {
+		name = haw.10.ceasefire
+		haw_flw_skip_ceasefire = yes
+		country_event = haw.10
+	}
+	option = {
+		name = haw.10.close
+	}
+}
+
+country_event = {
+	id = haw.11
+	title = haw.11.t
+	desc = haw.11.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.11.mora
+		haw_rrg_max_mora = yes
+		country_event = haw.11
+	}
+	option = {
+		name = haw.11.guerra
+		haw_rrg_max_guerra = yes
+		country_event = haw.11
+	}
+	option = {
+		name = haw.11.rosado
+		haw_rrg_max_rosado = yes
+		country_event = haw.11
+	}
+	option = {
+		name = haw.11.close
+	}
+}
+
+country_event = {
+	id = haw.12
+	title = haw.12.t
+	desc = haw.12.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.12.eggs
+		haw_mlt_add_eggs = yes
+		country_event = haw.12
+	}
+	option = {
+		name = haw.12.hatch
+		haw_mlt_hatch_eggs = yes
+		country_event = haw.12
+	}
+	option = {
+		name = haw.12.close
+	}
+}
+
+country_event = {
+	id = haw.13
+	title = haw.13.t
+	desc = haw.13.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.13.nursery
+		haw_ttm_max_nursery = yes
+		country_event = haw.13
+	}
+	option = {
+		name = haw.13.close
+	}
+}
+
+country_event = {
+	id = haw.14
+	title = haw.14.t
+	desc = haw.14.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.14.slots
+		haw_bos_add_slots = yes
+		country_event = haw.14
+	}
+	option = {
+		name = haw.14.tension
+		haw_bos_zero_tension = yes
+		country_event = haw.14
+	}
+	option = {
+		name = haw.14.close
+	}
+}
+
+country_event = {
+	id = haw.15
+	title = haw.15.t
+	desc = haw.15.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.15.raid
+		haw_brk_clear_raid = yes
+		country_event = haw.15
+	}
+	option = {
+		name = haw.15.close
+	}
+}

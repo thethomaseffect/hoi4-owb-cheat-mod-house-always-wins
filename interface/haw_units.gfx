@@ -1,0 +1,105 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_unit_haw_servebots_icon_medium"
+		textureFile = "gfx/interface/counters/divisions_large/unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebots_icon_medium_white"
+		textureFile = "gfx/interface/counters/divisions_small/onmap_unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebots_icon_small"
+		texturefile = "gfx/texticons/unit_support_robots_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_infantry_icon_medium"
+		textureFile = "gfx/interface/counters/divisions_large/unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_infantry_icon_medium_white"
+		textureFile = "gfx/interface/counters/divisions_small/onmap_unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_infantry_icon_small"
+		texturefile = "gfx/texticons/unit_support_robots_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_mobile_icon_medium"
+		textureFile = "gfx/interface/counters/divisions_large/unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_mobile_icon_medium_white"
+		textureFile = "gfx/interface/counters/divisions_small/onmap_unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_mobile_icon_small"
+		texturefile = "gfx/texticons/unit_support_robots_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_robots_icon_medium"
+		textureFile = "gfx/interface/counters/divisions_large/unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_robots_icon_medium_white"
+		textureFile = "gfx/interface/counters/divisions_small/onmap_unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_robots_icon_small"
+		texturefile = "gfx/texticons/unit_support_robots_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebird_icon_medium"
+		textureFile = "gfx/interface/counters/divisions_large/unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_house_screen_icon_medium"
+		texturefile = "gfx/interface/navalcombat/ships/convoy.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_house_screen_icon_medium_white"
+		texturefile = "gfx/interface/counters/ships_small/onmap_transport.dds"
+	}
+	spriteType = {
+		name = "GFX_unit_haw_house_capital_icon_medium"
+		texturefile = "gfx/interface/navalcombat/ships/convoy.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_house_capital_icon_medium_white"
+		texturefile = "gfx/interface/counters/ships_small/onmap_transport.dds"
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_support_icon_medium"
+		textureFile = "gfx/interface/counters/divisions_large/unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_support_icon_medium_white"
+		textureFile = "gfx/interface/counters/divisions_small/onmap_unit_support_robots_icon.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_unit_haw_servebot_support_icon_small"
+		texturefile = "gfx/texticons/unit_support_robots_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+}

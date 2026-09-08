@@ -1,0 +1,175 @@
+ideas = {
+	academy_spirit = {
+		haw_spirit_academy = {
+			picture = haw_handy
+			ledger = army
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				army_leader_start_level = 5
+				army_leader_start_attack_level = 5
+				army_leader_start_defense_level = 5
+				army_leader_start_planning_level = 5
+				army_leader_start_logistics_level = 5
+				army_leader_cost_factor = -1
+				experience_gain_army = 10
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	army_spirit = {
+		haw_spirit_army = {
+			picture = haw_handy
+			ledger = army
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				army_org_factor = 5.0
+				army_morale_factor = 5.0
+				experience_gain_army_factor = 5.0
+				land_reinforce_rate = 1.0
+				org_loss_when_moving = -0.9
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	division_command_spirit = {
+		haw_spirit_division = {
+			picture = haw_handy
+			ledger = army
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				army_attack_factor = 5.0
+				army_defence_factor = 5.0
+				army_speed_factor = 5.0
+				breakthrough_factor = 5.0
+				recon_factor = 5.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	naval_academy_spirit = {
+		haw_spirit_naval_academy = {
+			picture = haw_handy
+			ledger = navy
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				navy_leader_start_level = 5
+				navy_leader_cost_factor = -1
+				experience_gain_navy = 10
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	navy_spirit = {
+		haw_spirit_navy = {
+			picture = haw_handy
+			ledger = navy
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				navy_org_factor = 5.0
+				naval_speed_factor = 5.0
+				navy_max_range_factor = 5.0
+				experience_gain_navy_factor = 5.0
+				naval_coordination = 5.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	naval_command_spirit = {
+		haw_spirit_naval_command = {
+			picture = haw_handy
+			ledger = navy
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				navy_screen_attack_factor = 5.0
+				navy_screen_defence_factor = 5.0
+				navy_capital_ship_attack_factor = 5.0
+				navy_capital_ship_defence_factor = 5.0
+				navy_submarine_attack_factor = 5.0
+				navy_anti_air_attack_factor = 5.0
+				sortie_efficiency = 5.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	air_force_academy_spirit = {
+		haw_spirit_air_academy = {
+			picture = haw_handy
+			ledger = air
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				air_advisor_cost_factor = -1
+				experience_gain_air = 10
+				air_ace_generation_chance_factor = 5.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	air_force_spirit = {
+		haw_spirit_air = {
+			picture = haw_handy
+			ledger = air
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				air_accidents_factor = -0.9
+				air_range_factor = 5.0
+				experience_gain_air_factor = 5.0
+				army_bonus_air_superiority_factor = 5.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	air_force_command_spirit = {
+		haw_spirit_air_command = {
+			picture = haw_handy
+			ledger = air
+			allowed = { always = yes }
+			visible = { has_dlc = "No Step Back" }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				air_defence_factor = 5.0
+				air_agility_factor = 5.0
+				ground_attack_factor = 5.0
+				air_cas_present_factor = 5.0
+				air_mission_efficiency = 5.0
+				air_strategic_bomber_bombing_factor = 5.0
+				air_interception_attack_factor = 5.0
+				naval_strike_attack_factor = 5.0
+				ace_effectiveness_factor = 5.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+}

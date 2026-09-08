@@ -1,0 +1,294 @@
+sub_units = {
+	haw_servebots = {
+		sprite = support_robot
+		map_icon_category = armored
+		special_forces = yes
+		mountaineers = yes
+		priority = 900
+		ai_priority = 0
+		active = yes
+
+		type = {
+			infantry
+		}
+
+		group = special_forces_group
+
+		categories = {
+			category_army
+			category_front_line
+			category_special_forces
+			category_infantry_and_special_forces
+			category_light_Special_forces
+		}
+
+		combat_width = 1
+		max_strength = 400
+		max_organisation = 200
+		default_morale = 1.0
+		manpower = 1
+		soft_attack = 500
+		hard_attack = 500
+		defense = 500
+		breakthrough = 500
+		ap_attack = 500
+		armor_value = 200
+		hardness = 0.95
+		air_attack = 200
+		reliability = 1.0
+		initiative = 1.0
+		training_time = 1
+		suppression = 50
+		weight = 0.05
+		supply_consumption = 0.01
+		can_be_parachuted = yes
+		transport = infantry_equipment
+
+		need = {
+			infantry_equipment = 20
+		}
+
+		forest = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		hills = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		mountain = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		jungle = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		marsh = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		urban = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		desert = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		plains = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		amphibious = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		river = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		fort = { attack = 1.0 defence = 1.0 }
+	}
+
+	haw_servebot_infantry = {
+		sprite = support_robot
+		map_icon_category = infantry
+		priority = 900
+		ai_priority = 0
+		active = no
+
+		type = {
+			infantry
+		}
+
+		group = infantry
+
+		categories = {
+			category_army
+			category_front_line
+			category_infantry
+			category_infantry_and_special_forces
+			category_standard_infantry
+		}
+
+		combat_width = 1
+		max_strength = 400
+		max_organisation = 200
+		default_morale = 1.0
+		manpower = 1
+		soft_attack = 500
+		hard_attack = 500
+		defense = 500
+		breakthrough = 500
+		ap_attack = 500
+		armor_value = 200
+		hardness = 0.95
+		air_attack = 200
+		reliability = 1.0
+		initiative = 1.0
+		training_time = 1
+		suppression = 50
+		weight = 0.05
+		supply_consumption = 0.01
+		can_be_parachuted = yes
+		transport = infantry_equipment
+
+		need = {
+			infantry_equipment = 20
+		}
+
+		forest = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		hills = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		mountain = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		jungle = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		marsh = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		urban = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		desert = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		plains = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		amphibious = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		river = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		fort = { attack = 1.0 defence = 1.0 }
+	}
+
+	haw_servebot_mobile = {
+		sprite = support_robot
+		map_icon_category = armored
+		priority = 900
+		ai_priority = 0
+		active = no
+
+		type = {
+			motorized
+		}
+
+		group = mobile
+
+		categories = {
+			category_army
+			category_front_line
+			category_infantry
+			category_infantry_and_special_forces
+			category_vehicles
+			category_motorized
+		}
+
+		combat_width = 1
+		max_strength = 400
+		max_organisation = 200
+		default_morale = 1.0
+		manpower = 1
+		soft_attack = 500
+		hard_attack = 500
+		defense = 500
+		breakthrough = 500
+		ap_attack = 500
+		armor_value = 200
+		hardness = 0.95
+		air_attack = 200
+		reliability = 1.0
+		initiative = 1.0
+		training_time = 1
+		suppression = 50
+		weight = 0.05
+		supply_consumption = 0.01
+		transport = motorized_equipment
+
+		need = {
+			infantry_equipment = 20
+			motorized_equipment = 12
+		}
+
+		forest = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		hills = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		mountain = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		jungle = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		marsh = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		urban = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		desert = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		plains = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		amphibious = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		river = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		fort = { attack = 1.0 defence = 1.0 }
+	}
+
+	haw_servebot_robots = {
+		sprite = support_robot
+		map_icon_category = armored
+		priority = 900
+		ai_priority = 0
+		active = no
+
+		type = {
+			armor
+		}
+
+		group = robot_group
+
+		categories = {
+			category_army
+			category_front_line
+			category_robots
+			category_front_line_robots
+			category_vehicles
+		}
+
+		combat_width = 1
+		max_strength = 400
+		max_organisation = 200
+		default_morale = 1.0
+		manpower = 1
+		soft_attack = 500
+		hard_attack = 500
+		defense = 500
+		breakthrough = 500
+		ap_attack = 500
+		armor_value = 200
+		hardness = 0.95
+		air_attack = 200
+		reliability = 1.0
+		initiative = 1.0
+		training_time = 1
+		suppression = 50
+		weight = 0.05
+		supply_consumption = 0.01
+		transport = support_robot_equipment
+
+		need = {
+			infantry_equipment = 20
+			support_robot_equipment = 20
+		}
+
+		forest = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		hills = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		mountain = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		jungle = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		marsh = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		urban = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		desert = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		plains = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		amphibious = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		river = { attack = 1.0 defence = 1.0 movement = 1.0 }
+		fort = { attack = 1.0 defence = 1.0 }
+	}
+
+	haw_servebot_support = {
+		sprite = support_robot
+		map_icon_category = armored
+		priority = 0
+		ai_priority = 0
+		active = yes
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+
+		group = support
+		regimental = no
+
+		categories = {
+			category_army
+			category_support
+			category_special_forces
+		}
+
+		combat_width = 0
+		max_strength = 80
+		max_organisation = 80
+		default_morale = 1.0
+		manpower = 1
+		training_time = 1
+		weight = 0.05
+		supply_consumption = 0.01
+		recon = 20
+		initiative = 1.0
+		entrenchment = 20
+		casualty_trickleback = 0.8
+		experience_loss_factor = -0.9
+		can_be_parachuted = yes
+		defense = 200
+		breakthrough = 200
+		soft_attack = 200
+		hard_attack = 200
+		ap_attack = 200
+		air_attack = 100
+		hardness = 0.95
+		armor_value = 100
+
+		need = {
+			infantry_equipment = 10
+		}
+	}
+}

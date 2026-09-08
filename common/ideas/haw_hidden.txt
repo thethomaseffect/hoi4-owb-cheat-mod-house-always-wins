@@ -1,0 +1,58 @@
+ideas = {
+	hidden_ideas = {
+		haw_free_picks = {
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				mobilization_laws_cost_factor = -1
+				economy_cost_factor = -1
+				trade_laws_cost_factor = -1
+				army_wages_laws_cost_factor = -1
+				officer_training_laws_cost_factor = -1
+				army_training_laws_cost_factor = -1
+				outsider_recruitment_laws_cost_factor = -1
+				undesirables_recruitment_laws_cost_factor = -1
+				mutant_recruitment_laws_cost_factor = -1
+				centralization_laws_cost_factor = -1
+				drug_laws_cost_factor = -1
+				press_laws_cost_factor = -1
+				engineering_firm_cost_factor = -1
+				construction_firm_cost_factor = -1
+				vehicle_restoration_advisor_cost_factor = -1
+				navy_restoration_advisor_cost_factor = -1
+				aircraft_restoration_advisor_cost_factor = -1
+				political_advisor_cost_factor = -1
+				economic_advisor_cost_factor = -1
+				cultural_advisor_cost_factor = -1
+				army_chief_cost_factor = -1
+				navy_chief_cost_factor = -1
+				air_chief_cost_factor = -1
+				high_command_cost_factor = -1
+				theorist_cost_factor = -1
+				academy_spirit_cost_factor = -1
+				army_spirit_cost_factor = -1
+				division_command_spirit_cost_factor = -1
+				naval_academy_spirit_cost_factor = -1
+				navy_spirit_cost_factor = -1
+				naval_command_spirit_cost_factor = -1
+				air_force_academy_spirit_cost_factor = -1
+				air_force_spirit_cost_factor = -1
+				air_force_command_spirit_cost_factor = -1
+				caps_expense_modifier = -0.95
+			}
+		}
+		haw_instant_intel = {
+			allowed = { always = yes }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			modifier = {
+				agency_upgrade_time = -1
+				operation_cost = -1
+				intel_network_gain_factor = 10.0
+				operative_slot = 1
+				own_operative_detection_chance_factor = -0.9
+			}
+		}
+	}
+}

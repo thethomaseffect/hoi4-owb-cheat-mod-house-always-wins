@@ -1,0 +1,328 @@
+ideas = {
+	mobilization_laws = {
+		haw_inject_mobilization = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				conscription = 1.0
+				conscription_factor = 5.0
+				monthly_population = 10.0
+				mobilization_speed = 10.0
+				non_core_manpower = 1.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	outsider_recruitment_laws = {
+		haw_inject_outsiders = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				non_core_manpower = 1.0
+				monthly_population = 10.0
+				stability_factor = 0.5
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	undesirables_recruitment_laws = {
+		haw_inject_undesirables = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				conscription_factor = 1.0
+				political_power_gain = 2.0
+				stability_factor = 0.5
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	mutant_recruitment_laws = {
+		haw_inject_mutants = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				army_org_factor = 1.0
+				army_attack_factor = 1.0
+				army_defence_factor = 1.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	officer_training_laws = {
+		haw_inject_officers = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				military_leader_cost_factor = -1.0
+				command_power_gain = 20.0
+				max_command_power = 2000
+				planning_speed = 2.0
+				max_planning = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	army_training_laws = {
+		haw_inject_army_training = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				army_org_factor = 2.0
+				training_time_factor = -0.9
+				army_attack_factor = 2.0
+				army_defence_factor = 2.0
+				army_morale_factor = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	economy = {
+		haw_inject_economy = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				consumer_goods_factor = -0.8
+				production_speed_buildings_factor = 2.0
+				industrial_capacity_factory = 2.0
+				industrial_capacity_dockyard = 2.0
+				conversion_cost_civ_to_mil_factor = -0.9
+				conversion_cost_mil_to_civ_factor = -0.9
+				caps_flat_income_modifier = 250
+				caps_income_modifier = 1.0
+				caps_expense_modifier = -0.95
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	trade_laws = {
+		haw_inject_trade = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				min_export = 0
+				industrial_capacity_factory = 1.0
+				production_speed_buildings_factor = 1.0
+				research_speed_factor = 1.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	army_wages_laws = {
+		haw_inject_wages = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				army_org_factor = 1.0
+				army_morale_factor = 1.0
+				consumer_goods_factor = -0.5
+				political_power_gain = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	centralization_laws = {
+		haw_inject_centralization = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				political_power_factor = 2.0
+				stability_factor = 1.0
+				war_support_factor = 1.0
+				drift_defence_factor = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	drug_laws = {
+		haw_inject_drugs = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				army_org_factor = 1.0
+				army_morale_factor = 1.0
+				army_speed_factor = 1.0
+				training_time_factor = -0.5
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	press_laws = {
+		haw_inject_press = {
+			picture = haw_handy
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			allowed = { always = yes }
+			cancel_if_invalid = no
+			modifier = {
+				research_speed_factor = 2.0
+				political_power_factor = 2.0
+				stability_weekly = 0.05
+				war_support_weekly = 0.05
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	engineering_firm = {
+		designer = yes
+		haw_inject_engineering = {
+			picture = haw_handy
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = {
+				industry = 1.0
+				electronics = 1.0
+			}
+			modifier = {
+				production_speed_buildings_factor = 2.0
+				industrial_capacity_factory = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	construction_firm = {
+		designer = yes
+		haw_inject_construction = {
+			picture = haw_handy
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				production_speed_infrastructure_factor = 2.0
+				production_speed_buildings_factor = 2.0
+				industry_repair_factor = 2.0
+				industrial_capacity_factory = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+		haw_inject_construction_2 = {
+			picture = haw_handy
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			modifier = {
+				local_resources_factor = 2.0
+				production_speed_arms_factory_factor = 2.0
+				production_speed_industrial_complex_factor = 2.0
+				production_factory_max_efficiency_factor = 1.0
+				consumer_goods_factor = -0.25
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	vehicle_restoration_advisor = {
+		designer = yes
+		haw_inject_vehicles = {
+			picture = haw_handy
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = { armor = 1.0 }
+			modifier = {
+				army_armor_attack_factor = 2.0
+				army_armor_defence_factor = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	navy_restoration_advisor = {
+		designer = yes
+		haw_inject_navy = {
+			picture = haw_handy
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = { naval_equipment = 1.0 }
+			modifier = {
+				industrial_capacity_dockyard = 2.0
+				navy_max_range_factor = 2.0
+				naval_speed_factor = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	aircraft_restoration_advisor = {
+		designer = yes
+		haw_inject_aircraft = {
+			picture = haw_handy
+			allowed = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			research_bonus = { air_equipment = 1.0 }
+			modifier = {
+				air_range_factor = 2.0
+				army_bonus_air_superiority_factor = 2.0
+				air_ace_generation_chance_factor = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+}

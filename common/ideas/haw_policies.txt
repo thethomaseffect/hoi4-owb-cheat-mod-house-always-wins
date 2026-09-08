@@ -1,0 +1,143 @@
+ideas = {
+	haw_politics = {
+		law = yes
+		haw_politics_most = {
+			picture = haw_handy
+			allowed = { always = yes }
+			available = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			cancel_if_invalid = no
+			modifier = {
+				command_power_gain = 20.0
+				command_power_gain_mult = 10.0
+				drift_defence_factor = 2.0
+				political_power_gain = 2.0
+				political_power_factor = 2.0
+				stability_factor = 2.0
+				stability_weekly = 0.05
+				war_support_factor = 2.0
+				war_support_weekly = 0.05
+				max_command_power = 2000
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_construction = {
+		law = yes
+		haw_construction_most = {
+			picture = haw_handy
+			allowed = { always = yes }
+			available = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			cancel_if_invalid = no
+			modifier = {
+				production_speed_buildings_factor = 2.0
+				industry_repair_factor = 2.0
+				free_building_slots_factor = 2.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_production = {
+		law = yes
+		haw_production_most = {
+			picture = haw_handy
+			allowed = { always = yes }
+			available = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			cancel_if_invalid = no
+			modifier = {
+				industrial_capacity_factory = 2.0
+				industrial_capacity_dockyard = 2.0
+				production_factory_max_efficiency_factor = 2.0
+				production_factory_efficiency_gain_factor = 2.0
+				line_change_production_efficiency_factor = 2.0
+				consumer_goods_factor = -0.8
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_army = {
+		law = yes
+		haw_army_most = {
+			picture = haw_handy
+			allowed = { always = yes }
+			available = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			cancel_if_invalid = no
+			modifier = {
+				army_attack_factor = 2.0
+				army_defence_factor = 2.0
+				army_org_factor = 2.0
+				army_speed_factor = 2.0
+				army_morale_factor = 2.0
+				conscription = 1.0
+				conscription_factor = 5.0
+				monthly_population = 10.0
+				non_core_manpower = 1.0
+				special_forces_cap = 2.0
+				training_time_factor = -0.9
+				supply_consumption_factor = -0.5
+				attrition = -0.9
+				amphibious_invasion = 2.0
+				invasion_preparation = -0.9
+				experience_gain_army = 10.0
+				caps_expense_modifier = -0.95
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_navy = {
+		law = yes
+		haw_navy_most = {
+			picture = haw_handy
+			allowed = { always = yes }
+			available = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			cancel_if_invalid = no
+			modifier = {
+				naval_speed_factor = 2.0
+				navy_max_range_factor = 2.0
+				navy_org_factor = 2.0
+				amphibious_invasion = 2.0
+				naval_invasion_capacity = 50
+				experience_gain_navy = 10.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+
+	haw_air = {
+		law = yes
+		haw_air_most = {
+			picture = haw_handy
+			allowed = { always = yes }
+			available = { always = yes }
+			visible = { always = yes }
+			cost = 0
+			removal_cost = 0
+			cancel_if_invalid = no
+			modifier = {
+				air_ace_generation_chance_factor = 2.0
+				army_bonus_air_superiority_factor = 2.0
+				air_range_factor = 2.0
+				experience_gain_air = 10.0
+			}
+			ai_will_do = { factor = 0 }
+		}
+	}
+}

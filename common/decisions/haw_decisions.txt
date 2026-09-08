@@ -1,0 +1,115 @@
+haw_decisions = {
+	haw_console = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+		}
+		complete_effect = {
+			country_event = haw.1
+		}
+	}
+
+	haw_faction_flower = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			OR = {
+				original_tag = ATE
+				original_tag = ITZ
+			}
+		}
+		complete_effect = {
+			country_event = haw.10
+		}
+	}
+
+	haw_faction_rrg = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			original_tag = RRG
+		}
+		complete_effect = {
+			country_event = haw.11
+		}
+	}
+
+	haw_faction_mlt = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			original_tag = MLT
+		}
+		complete_effect = {
+			country_event = haw.12
+		}
+	}
+
+	haw_faction_ttm = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			original_tag = TTM
+		}
+		complete_effect = {
+			country_event = haw.13
+		}
+	}
+
+	haw_faction_bos = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			original_tag = BOS
+		}
+		complete_effect = {
+			country_event = haw.14
+		}
+	}
+
+	haw_faction_brk = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			original_tag = BRK
+		}
+		complete_effect = {
+			country_event = haw.15
+		}
+	}
+}

@@ -1,0 +1,52 @@
+technologies = {
+	haw_servebot_infantry_unlock = {
+		research_cost = 1
+		start_year = 2275
+		allow = { always = no }
+		ai_will_do = { factor = 0 }
+		enable_subunits = {
+			haw_servebot_infantry
+		}
+	}
+
+	haw_servebot_mobile_unlock = {
+		research_cost = 1
+		start_year = 2275
+		allow = { always = no }
+		ai_will_do = { factor = 0 }
+		enable_subunits = {
+			haw_servebot_mobile
+		}
+	}
+
+	haw_servebot_robots_unlock = {
+		research_cost = 1
+		start_year = 2275
+		allow = { always = no }
+		ai_will_do = { factor = 0 }
+		enable_subunits = {
+			haw_servebot_robots
+		}
+	}
+
+	haw_servebird_unlock = {
+		research_cost = 1
+		start_year = 2275
+		allow = { always = no }
+		ai_will_do = { factor = 0 }
+		enable_equipments = {
+			haw_servebird_equipment_0
+		}
+	}
+
+	haw_house_navy_unlock = {
+		research_cost = 1
+		start_year = 2275
+		allow = { always = no }
+		ai_will_do = { factor = 0 }
+		enable_equipments = {
+			haw_house_screen_hull_0
+			haw_house_capital_hull_0
+		}
+	}
+}
