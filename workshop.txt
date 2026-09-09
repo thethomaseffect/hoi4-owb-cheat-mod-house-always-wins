@@ -1,0 +1,127 @@
+[h1]AI usage warning[/h1]
+[b]This mod was built with AI assistance.[/b] If you do not want AI-authored mods, or you do not want to maintain submods against an AI-assisted codebase, this is not the mod for you. Unsubscribe and use something else.
+
+[h1]THE GAME WAS RIGGED FROM THE START[/h1]
+
+Bug reports belong on [url=https://github.com/thethomaseffect/hoi4-owb-cheat-mod-house-always-wins/issues]GitHub issues[/url], not in the Workshop comments.
+
+[h1]What this is[/h1]
+A dedicated cheat mod for [b]Old World Blues[/b], aiming to provide dedicated support for the mod and it's unique mechanics. Standing bonuses live on the politics screen as House policies, Handy companies, and Handy staff. One decision opens Mr. House's cheat menu for one-shot actions. National spirits are not stuffed with cheat icons.
+
+There is only [b]one set of modifiers available[/b]. This is a maintainability choice. If the numbers are too strong for you, make your own submod that tones them down, or use a different cheat mod. Requests to add "medium" or "low" versions will not be taken.
+
+If you want a more fine-grained sandbox (sliders, multiple tiers, vanilla-friendly options), use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3749504986]Comprehensive Sandbox Control[/url] by [url=https://steamcommunity.com/id/TheGhosticus]Ghosticus[/url] instead. That mod is not OWB-specific.
+
+[h1]Load order[/h1]
+[list]
+[*] Old World Blues
+[*] Any OWB submods you actually play with
+[*] [b]OWB - The House Always Wins[/b] last
+[/list]
+Do [b]not[/b] enable Cheat Mods Combined (or the OWB x CMC compat patch) in the same playset. This mod is meant to replace that stack for OWB.
+
+[h1]Features[/h1]
+[h2]Politics screen[/h2]
+[list]
+[*] Extra [b]House[/b] options in the OWB law / firm pickers (draft, outsiders, undesirables, mutants, officers, army training, economy, trade, wages, centralization, chems, press, engineering, construction, vehicles, navy, aircraft)
+[*] Three new rows at the bottom of politics: [b]House Policies[/b], [b]Handy Companies[/b], [b]Handy Staff[/b]
+[*] Policies: politics, construction, production, army, navy, air
+[*] Companies: Handy Hulls, Keel and Kettle, Rotor and Toast, Munitions Mops, Lucky 38 Machine Shop, Professor Clank
+[*] Staff: Mister Scoop / Vacuum / Dustpan, Centurion Coffee, Admiral Suds, Marshal Mops, Major Brush, Colonel Sponge
+[*] Policy and advisor picks are free
+[/list]
+
+[h2]Units[/h2]
+[list]
+[*] [b]Servebots[/b] — special forces infantry, mobile, and robot templates, plus Servebot Support. Basic rifles so they work before you have fancy tech. Cheap to run, usable in naval invasions and paradrops
+[*] [b]Servebird[/b] air wing
+[*] [b]House Screen[/b] and [b]House Capital[/b] hulls (armour pen on Handy Hulls)
+[/list]
+
+[h2]Mr. House's cheat menu (one decision)[/h2]
+[b]Trade and resources[/b]
+[list]
+[*] Enable all disabled trade nodes
+[*] Upgrade all owned nodes to level 10
+[*] Max trader house influence (OWB clamp: 300)
+[*] Add water, electricity, and other used resources to controlled states
+[/list]
+[b]Cores, buildings, and war[/b]
+[list]
+[*] Max compliance / min resistance, then core every eligible owned state
+[*] Max infrastructure, air bases, and radar
+[*] Supply hub in every owned province
+[*] Justify on all neighbours
+[*] Reduce puppet autonomy
+[*] Teleport exiled troops to the capital
+[/list]
+[b]Tech[/b]
+[list]
+[*] Set all tech levels for your country to sophisticated
+[*] Unlock all technologies available for your country (Will be limited to your tech levels, so if you want everything raise tech levels first)
+[*] Unlock all available unique technologies(Not those unavailable to your country, however if you unlock all reward technologies the scope of these changes)
+[*] Unlock reward technologies, regardless of requirements
+[*] Unlock all perks and doctrines
+[*] Set research slots to five (designed for start of game before unlocking more)
+[/list]
+[b]Scavenging[/b]
+[list]
+[*] Finish scavenging preparations (Start scavenging via decision, hit this button, then actually commence an operation)
+[*] Complete the current scavenging expedition (Current operation. Modifiers are stacked so chance of success is almost assured)
+[/list]
+[b]Misc[/b]
+[list]
+[*] Army buffs
+[*] 10k stockpile of all unlocked equipment
+[*] Max caps (OWB ceiling 25000), political power, command power, and experience
+[*] Stability and war support to 100
+[*] Hire max-skill Handy army / navy / air commanders (They have every possible positive trait)
+[*] World tension to 100 or 0
+[*] Add 10k convoys
+[*] Officer corps spirits ([b]No Step Back[/b] only — hidden without the DLC)
+[*] Intelligence agency, extra operative slot, instant agency upgrades, and eight House agents ([b]La Resistance[/b] only — hidden without the DLC). Agents have every positive trait unlocked. You will still need to wait 30 days for each slot to unlock, this is an engine limitation and changing it would affect AI.
+[/list]
+
+[h2]Faction extras (only if you are that tag)[/h2]
+[list]
+[*] Flower Wars (Aztlan / Itza): take initiative, skip ceasefire
+[*] Rio Grande Senate: max Mora / Guerra / Rosado support
+[*] Mirelurk Tribe: add eggs, hatch eggs into manpower
+[*] The Nursery: max computational power and satellites
+[*] Lost Hills: underground slots, Brotherhood–NCR tension to 0
+[*] Broken Coast: clear the current raid lock
+[/list]
+Not every unique OWB faction mechanic is covered or fully tested. Pull requests that add support for more OWB (and OWB submod) faction mechanics are welcome.
+
+[h1]Compatibility[/h1]
+Built to only require Old World Blues before it in the load order. It tries to only add and never replace (ie. the modifiers are behind optional companies, advisors etc. so they can be turned off in future, we don't add national spirits) so compatibility with other mods should be high.
+[list]
+[*] New idea category file is prefixed so it [b]adds[/b] rows instead of replacing vanilla / OWB category files
+[*] House laws are extra options inside existing OWB pickers, not replacements of those files
+[*] DLC features are absent when the DLC is off
+[/list]
+[b]Where it can still conflict[/b]
+[list]
+[*] Another mod that [b]replace_path[/b]s [i]common/idea_tags[/i], [i]common/ideas[/i], [i]common/decisions[/i], units, or technologies
+[*] Another mod that overwrites the same OWB law / firm idea files and drops unknown entries
+[*] Cheat Mods Combined in the same playset (duplicate cheats, cluttered politics, event UI fights)
+[*] Overlapping unit or tech IDs from other cheat / sandbox mods
+[*] OWB submods that rewrite the same faction scripts this menu calls
+[/list]
+
+[h1]Languages[/h1]
+English is written by hand. Russian and Simplified Chinese are [b]machine translated[/b]. Pull requests for real translations (or more languages) are welcome.
+
+[h1]Source, PRs, bugs[/h1]
+[url=https://github.com/thethomaseffect/hoi4-owb-cheat-mod-house-always-wins]GitHub: House Always Wins[/url]
+[list]
+[*] Report bugs on GitHub, not in comments
+[*] PRs welcome for OWB submod faction mechanics and localisation
+[/list]
+Want 1-day focuses for a single country? (A limitation of the console is that AI is affected)? Use the [url=https://github.com/thethomaseffect/hoi4-fast-single-country-focus-tree-generator]HOI4 Single Country Focus Tree Generator[/url]. Example: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3794913936]OWB New California Republic Fast Focus Tree[/url].
+
+[h1]Credits[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=843933244]Cheat Mods Combined[/url] by [url=https://steamcommunity.com/profiles/76561198039667591]Vincente Steele[/url] — The UI and functionality for that mod inspired this.
+[*] Old World Blues team for this amazing setting
+[/list]

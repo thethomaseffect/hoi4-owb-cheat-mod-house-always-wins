@@ -2,7 +2,7 @@
 
 A dedicated cheat mod for the Hearts of Iron IV total conversion **Old World Blues**.
 
-This repository is the source of truth. Deploy mirrors it into the local HOI4 mods folder as `house_always_wins`. Workshop gallery shots live in `screenshots/` and are not deployed.
+This repository is the source of truth. Deploy mirrors it into the local HOI4 mods folder as `house_always_wins`. Workshop gallery shots live in `screenshots/` and are not deployed. Steam Workshop copy-paste BBCode lives in [`workshop.txt`](workshop.txt).
 
 ```
 pip install -r requirements.txt

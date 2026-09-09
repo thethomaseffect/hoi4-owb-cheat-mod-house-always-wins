@@ -41,7 +41,7 @@ Deploy:
 
 - Replaces `.../mod/house_always_wins/`
 - Writes `.../mod/house_always_wins.mod` with `path` set
-- Skips `.git`, `.cursor`, `tools/`, `screenshots/`, `README.md`, `LICENSE`, `ASSETS_LICENCE.md`, and `CLAUDE.md`
+- Skips `.git`, `.cursor`, `tools/`, `screenshots/`, `README.md`, `LICENSE`, `ASSETS_LICENCE.md`, `CLAUDE.md`, and `workshop.txt`
 - Copies `descriptor.mod`, `thumbnail.png`, and every HOI4 content folder
 
 Override the destination with `--mods-directory` if needed.
@@ -60,6 +60,8 @@ python tools/resize_workshop_images.py
 ```
 
 The script center-crops to the target aspect, scales with LANCZOS, and recompresses until the file is under 1 MB. `thumbnail.png` stays PNG. Screenshot format is kept (PNG or JPG).
+
+Copy-paste Steam text lives in `workshop.txt` (not deployed).
 
 ## This mod
 

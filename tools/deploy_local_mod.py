@@ -30,6 +30,7 @@ EXCLUDE_ROOT_FILES = {
     "LICENSE",
     "README.md",
     "requirements.txt",
+    "workshop.txt",
 }
 
 
