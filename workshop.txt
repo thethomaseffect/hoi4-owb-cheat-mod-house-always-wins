@@ -102,7 +102,7 @@ Built to only require Old World Blues before it in the load order. It tries to o
 [/list]
 [b]Where it can still conflict[/b]
 [list]
-[*] Another mod that [b]replace_path[/b]s [i]common/idea_tags[/i], [i]common/ideas[/i], [i]common/decisions[/i], units, or technologies
+[*] Another mod that uses [b]replace_path[/b] on [i]common/idea_tags[/i], [i]common/ideas[/i], [i]common/decisions[/i], units, or technologies
 [*] Another mod that overwrites the same OWB law / firm idea files and drops unknown entries
 [*] Cheat Mods Combined in the same playset (duplicate cheats, cluttered politics, event UI fights)
 [*] Overlapping unit or tech IDs from other cheat / sandbox mods
