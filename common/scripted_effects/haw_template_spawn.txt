@@ -1,0 +1,203 @@
+# Spawn-only Servebot armies. OWB caps combat at 5x3 and support at 5x1.
+# Existing templates with units are left alone (override would create "Name 2").
+
+haw_add_servebot_sf_template = {
+	if = {
+		limit = { NOT = { has_template = "Servebot Special Forces" } }
+		division_template = {
+			name = "Servebot Special Forces"
+			is_locked = no
+			template_counter = 83
+			ingame_set_template_counter = yes
+			regiments = {
+				haw_servebots = { x = 0 y = 0 }
+				haw_servebots = { x = 1 y = 0 }
+				haw_servebots = { x = 2 y = 0 }
+				haw_servebots = { x = 3 y = 0 }
+				haw_servebots = { x = 4 y = 0 }
+				haw_servebots = { x = 0 y = 1 }
+				haw_servebots = { x = 1 y = 1 }
+				haw_servebots = { x = 2 y = 1 }
+				haw_servebots = { x = 3 y = 1 }
+				haw_servebots = { x = 4 y = 1 }
+				haw_servebots = { x = 0 y = 2 }
+				haw_servebots = { x = 1 y = 2 }
+				haw_servebots = { x = 2 y = 2 }
+				haw_servebots = { x = 3 y = 2 }
+				haw_servebots = { x = 4 y = 2 }
+			}
+			support = {
+				haw_servebot_support = { x = 0 y = 0 }
+				haw_servebot_support = { x = 1 y = 0 }
+				haw_servebot_support = { x = 2 y = 0 }
+				haw_servebot_support = { x = 3 y = 0 }
+				haw_servebot_support = { x = 4 y = 0 }
+			}
+		}
+	}
+}
+
+haw_add_servebot_infantry_template = {
+	if = {
+		limit = { NOT = { has_template = "Servebot Infantry" } }
+		division_template = {
+			name = "Servebot Infantry"
+			is_locked = no
+			template_counter = 68
+			ingame_set_template_counter = yes
+			regiments = {
+				haw_servebot_infantry = { x = 0 y = 0 }
+				haw_servebot_infantry = { x = 1 y = 0 }
+				haw_servebot_infantry = { x = 2 y = 0 }
+				haw_servebot_infantry = { x = 3 y = 0 }
+				haw_servebot_infantry = { x = 4 y = 0 }
+				haw_servebot_infantry = { x = 0 y = 1 }
+				haw_servebot_infantry = { x = 1 y = 1 }
+				haw_servebot_infantry = { x = 2 y = 1 }
+				haw_servebot_infantry = { x = 3 y = 1 }
+				haw_servebot_infantry = { x = 4 y = 1 }
+				haw_servebot_infantry = { x = 0 y = 2 }
+				haw_servebot_infantry = { x = 1 y = 2 }
+				haw_servebot_infantry = { x = 2 y = 2 }
+				haw_servebot_infantry = { x = 3 y = 2 }
+				haw_servebot_infantry = { x = 4 y = 2 }
+			}
+			support = {
+				haw_servebot_support = { x = 0 y = 0 }
+				haw_servebot_support = { x = 1 y = 0 }
+				haw_servebot_support = { x = 2 y = 0 }
+				haw_servebot_support = { x = 3 y = 0 }
+				haw_servebot_support = { x = 4 y = 0 }
+			}
+		}
+	}
+}
+
+haw_add_servebot_mobile_template = {
+	if = {
+		limit = { NOT = { has_template = "Servebot Mobile" } }
+		division_template = {
+			name = "Servebot Mobile"
+			is_locked = no
+			template_counter = 12
+			ingame_set_template_counter = yes
+			regiments = {
+				haw_servebot_mobile = { x = 0 y = 0 }
+				haw_servebot_mobile = { x = 1 y = 0 }
+				haw_servebot_mobile = { x = 2 y = 0 }
+				haw_servebot_mobile = { x = 3 y = 0 }
+				haw_servebot_mobile = { x = 4 y = 0 }
+				haw_servebot_mobile = { x = 0 y = 1 }
+				haw_servebot_mobile = { x = 1 y = 1 }
+				haw_servebot_mobile = { x = 2 y = 1 }
+				haw_servebot_mobile = { x = 3 y = 1 }
+				haw_servebot_mobile = { x = 4 y = 1 }
+				haw_servebot_mobile = { x = 0 y = 2 }
+				haw_servebot_mobile = { x = 1 y = 2 }
+				haw_servebot_mobile = { x = 2 y = 2 }
+				haw_servebot_mobile = { x = 3 y = 2 }
+				haw_servebot_mobile = { x = 4 y = 2 }
+			}
+			support = {
+				haw_servebot_support = { x = 0 y = 0 }
+				haw_servebot_support = { x = 1 y = 0 }
+				haw_servebot_support = { x = 2 y = 0 }
+				haw_servebot_support = { x = 3 y = 0 }
+				haw_servebot_support = { x = 4 y = 0 }
+			}
+		}
+	}
+}
+
+haw_add_servebot_robots_template = {
+	if = {
+		limit = { NOT = { has_template = "Servebot Robots" } }
+		division_template = {
+			name = "Servebot Robots"
+			is_locked = no
+			template_counter = 190
+			ingame_set_template_counter = yes
+			regiments = {
+				haw_servebot_robots = { x = 0 y = 0 }
+				haw_servebot_robots = { x = 1 y = 0 }
+				haw_servebot_robots = { x = 2 y = 0 }
+				haw_servebot_robots = { x = 3 y = 0 }
+				haw_servebot_robots = { x = 4 y = 0 }
+				haw_servebot_robots = { x = 0 y = 1 }
+				haw_servebot_robots = { x = 1 y = 1 }
+				haw_servebot_robots = { x = 2 y = 1 }
+				haw_servebot_robots = { x = 3 y = 1 }
+				haw_servebot_robots = { x = 4 y = 1 }
+				haw_servebot_robots = { x = 0 y = 2 }
+				haw_servebot_robots = { x = 1 y = 2 }
+				haw_servebot_robots = { x = 2 y = 2 }
+				haw_servebot_robots = { x = 3 y = 2 }
+				haw_servebot_robots = { x = 4 y = 2 }
+			}
+			support = {
+				haw_servebot_support = { x = 0 y = 0 }
+				haw_servebot_support = { x = 1 y = 0 }
+				haw_servebot_support = { x = 2 y = 0 }
+				haw_servebot_support = { x = 3 y = 0 }
+				haw_servebot_support = { x = 4 y = 0 }
+			}
+		}
+	}
+}
+
+haw_add_servebot_templates = {
+	if = {
+		limit = { NOT = { has_tech = haw_servebot_gear_unlock } }
+		set_technology = {
+			haw_servebot_gear_unlock = 1
+			popup = no
+		}
+	}
+	set_technology = {
+		haw_servebot_infantry_unlock = 1
+		haw_servebot_mobile_unlock = 1
+		haw_servebot_robots_unlock = 1
+		popup = no
+	}
+	haw_add_servebot_sf_template = yes
+	haw_add_servebot_infantry_template = yes
+	haw_add_servebot_mobile_template = yes
+	haw_add_servebot_robots_template = yes
+	country_event = haw.16
+}
+
+haw_spawn_servebot_veterans = {
+	capital_scope = {
+		create_unit = {
+			division = "division_template = \"Servebot Special Forces\" start_experience_factor = 1.0 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+			owner = ROOT
+			count = 6
+			allow_spawning_on_enemy_provs = yes
+		}
+		create_unit = {
+			division = "division_template = \"Servebot Infantry\" start_experience_factor = 1.0 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+			owner = ROOT
+			count = 6
+			allow_spawning_on_enemy_provs = yes
+		}
+		create_unit = {
+			division = "division_template = \"Servebot Mobile\" start_experience_factor = 1.0 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+			owner = ROOT
+			count = 6
+			allow_spawning_on_enemy_provs = yes
+		}
+		create_unit = {
+			division = "division_template = \"Servebot Robots\" start_experience_factor = 1.0 start_equipment_factor = 1.0 start_manpower_factor = 1.0"
+			owner = ROOT
+			count = 6
+			allow_spawning_on_enemy_provs = yes
+		}
+	}
+}
+
+haw_ensure_servebot_template = {
+	if = {
+		limit = { NOT = { has_template = "Servebot Special Forces" } }
+		haw_add_servebot_sf_template = yes
+	}
+}

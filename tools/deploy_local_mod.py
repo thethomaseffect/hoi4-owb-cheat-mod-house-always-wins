@@ -87,6 +87,27 @@ def with_path(text: str, path: str) -> str:
     return "".join(lines)
 
 
+def local_launcher_pointer(descriptor_text: str, dest: Path) -> str:
+    """Workshop and local copies must not share name + remote_file_id.
+
+    The Paradox launcher treats that pair as one item and HOI4 then loads
+    neither. Keep remote_file_id on the inner descriptor for uploads; the
+    Documents pointer is a distinct local playset entry.
+    """
+    pointer = with_path(descriptor_text, dest.as_posix())
+    pointer = re.sub(r'^remote_file_id\s*=\s*"[^"]+"\n?', "", pointer, flags=re.MULTILINE)
+    match = re.search(r'^name="([^"]+)"', pointer, flags=re.MULTILINE)
+    if match and not match.group(1).endswith(" (local)"):
+        pointer = re.sub(
+            r'^name="([^"]+)"',
+            r'name="\1 (local)"',
+            pointer,
+            count=1,
+            flags=re.MULTILINE,
+        )
+    return pointer
+
+
 def should_copy(relative: Path) -> bool:
     if relative.parts and relative.parts[0] in EXCLUDE_DIR_NAMES:
         return False
@@ -126,11 +147,12 @@ def deploy(repo: Path, mods_dir: Path, slug: str) -> Path:
     )
     (dest / "descriptor.mod").write_text(descriptor_text, encoding="utf-8")
 
-    pointer = with_path(descriptor_text, dest.as_posix())
+    pointer = local_launcher_pointer(descriptor_text, dest)
     (mods_dir / f"{slug}.mod").write_text(pointer, encoding="utf-8")
 
     print(f"Updated {dest} ({len(copied)} files)")
     print(f"Updated {mods_dir / f'{slug}.mod'}")
+    print("Enable the local copy in the playset, not the Workshop item with the same title.")
     return dest
 
 

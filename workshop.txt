@@ -27,7 +27,8 @@ Do [b]not[/b] enable Cheat Mods Combined (or the OWB x CMC compat patch) in the 
 [*] Three new rows at the bottom of politics: [b]House Policies[/b], [b]Handy Companies[/b], [b]Handy Staff[/b]
 [*] Policies: politics, construction, production, army, navy, air
 [*] Companies: Handy Hulls, Keel and Kettle, Rotor and Toast, Munitions Mops, Lucky 38 Machine Shop, Professor Clank
-[*] Staff: Mister Scoop / Vacuum / Dustpan, Centurion Coffee, Admiral Suds, Marshal Mops, Major Brush, Colonel Sponge
+[*] Staff: Handy portraits with names from your faction namelist. Extra economic, cultural, high command, and theorist picks so slot-expander mods have someone to hire at game start
+[*] Instant Construction and Factory Overclock policies actually rush buildings, tanks, ships, and planes. Servitor Doctrine speeds training without stacking it into a freeze
 [*] Policy and advisor picks are free
 [/list]
 
@@ -45,23 +46,24 @@ Do [b]not[/b] enable Cheat Mods Combined (or the OWB x CMC compat patch) in the 
 [*] Upgrade all owned nodes to level 10
 [*] Max trader house influence (OWB clamp: 300)
 [*] Add water, electricity, and other used resources to controlled states
+[*] Max infrastructure, air bases, and radar
+[*] Max every existing road and put a supply hub on those tiles (press again after you build more roads)
 [/list]
-[b]Cores, buildings, and war[/b]
+[b]Cores and war[/b]
 [list]
 [*] Max compliance / min resistance, then core every eligible owned state
-[*] Max infrastructure, air bases, and radar
-[*] Supply hub in every owned province
 [*] Justify on all neighbours
 [*] Reduce puppet autonomy
-[*] Teleport exiled troops to the capital
+[*] Teleport exiled / stuck troops to the capital (same idea as selecting them and using the teleport console)
 [/list]
 [b]Tech[/b]
 [list]
 [*] Set all tech levels for your country to sophisticated
-[*] Unlock all technologies available for your country (Will be limited to your tech levels, so if you want everything raise tech levels first)
-[*] Unlock all available unique technologies(Not those unavailable to your country, however if you unlock all reward technologies the scope of these changes)
+[*] Unlock all technologies available for your country (tech levels still apply; unique / blocked-unit equipment and the implant tree are skipped; XOR branches are both granted)
+[*] Unlock company bonuses and unique technologies (Chariots, Gauss, plasma, skates, and the rest — still needs the previous node in that unique chain)
 [*] Unlock reward technologies, regardless of requirements
 [*] Unlock all perks and doctrines
+[*] Roll out implants, only if that nation already has the implant tree
 [*] Set research slots to five (designed for start of game before unlocking more)
 [/list]
 [b]Scavenging[/b]
@@ -75,7 +77,8 @@ Do [b]not[/b] enable Cheat Mods Combined (or the OWB x CMC compat patch) in the 
 [*] 10k stockpile of all unlocked equipment
 [*] Max caps (OWB ceiling 25000), political power, command power, and experience
 [*] Stability and war support to 100
-[*] Hire max-skill Handy army / navy / air commanders (They have every possible positive trait)
+[*] Hire five max-skill Handy army / navy / air commanders per click (faction namelist names, every positive trait)
+[*] Spawn six veteran Servebot divisions of each type (special forces, infantry, mobile, robots). Templates stay if those units exist; leftover empty copies can be deleted by hand
 [*] World tension to 100 or 0
 [*] Add 10k convoys
 [*] Officer corps spirits ([b]No Step Back[/b] only — hidden without the DLC)
@@ -88,8 +91,10 @@ Do [b]not[/b] enable Cheat Mods Combined (or the OWB x CMC compat patch) in the 
 [*] Rio Grande Senate: max Mora / Guerra / Rosado support
 [*] Mirelurk Tribe: add eggs, hatch eggs into manpower
 [*] The Nursery: max computational power and satellites
-[*] Lost Hills: underground slots, Brotherhood–NCR tension to 0
+[*] Lost Hills: underground slots, Brotherhood–NCR tension min/max, assign all council power to one bloc, add undeployed paladins, finish in-progress bunker rooms
 [*] Broken Coast: clear the current raid lock
+[*] Caesar's Legion: set Caesar's hidden stress to minimum, or to maximum (the next increase kills him)
+[*] New California Republic: dump vote-of-no-confidence or election influence to one candidate (shown while those votes are active)
 [/list]
 Not every unique OWB faction mechanic is covered or fully tested. Pull requests that add support for more OWB (and OWB submod) faction mechanics are welcome.
 

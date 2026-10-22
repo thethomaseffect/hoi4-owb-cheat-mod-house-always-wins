@@ -3,8 +3,8 @@ on_actions = {
 		effect = {
 			every_country = {
 				limit = { is_ai = no }
-				add_ideas = haw_free_picks
-				haw_grant_gated_cheats = yes
+				haw_ensure_player_cheats = yes
+				set_country_flag = haw_player_setup
 				if = {
 					limit = {
 						has_idea = haw_instant_intel
@@ -12,6 +12,16 @@ on_actions = {
 					}
 					remove_ideas = haw_instant_intel
 				}
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+			if = {
+				limit = { is_ai = no }
+				haw_ensure_house_staff = yes
+				haw_grant_gated_cheats = yes
 			}
 		}
 	}

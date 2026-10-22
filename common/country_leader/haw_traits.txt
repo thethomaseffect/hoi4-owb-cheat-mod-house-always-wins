@@ -225,6 +225,13 @@ leader_traits = {
 		ai_will_do = { factor = 0 }
 	}
 
+	haw_theorist_cog = {
+		sprite = 14
+		research_speed_factor = 0.5
+		experience_gain_army = 5.0
+		ai_will_do = { factor = 0 }
+	}
+
 	haw_intel_bot = {
 		random = no
 		sprite = 15

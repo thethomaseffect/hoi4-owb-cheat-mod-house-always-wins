@@ -21,6 +21,38 @@ haw_max_all_nodes = {
 	force_update_nodes = yes
 }
 
+haw_core_eligible_states_pass = {
+	every_owned_state = {
+		limit = {
+			NOT = { is_core_of = ROOT }
+			coring_can_core_trigger = yes
+			coring_adjacency_trigger = yes
+			coring_resistance_compliance_trigger = yes
+		}
+		if = {
+			limit = {
+				OWNER = {
+					check_variable = {
+						var = modifier@pacification_system_enabled
+						value = 1
+						compare = greater_than_or_equals
+					}
+				}
+			}
+		}
+		else = {
+			add_core_of = ROOT
+			on_core = yes
+			if = {
+				limit = {
+					is_in_array = { ROOT.uncored_states_array = THIS.id }
+				}
+				remove_from_array = { ROOT.uncored_states_array = THIS.id }
+			}
+		}
+	}
+}
+
 haw_prep_and_core_all = {
 	every_owned_state = {
 		limit = {
@@ -29,11 +61,17 @@ haw_prep_and_core_all = {
 		add_compliance = 100
 		set_resistance = 0
 	}
-	every_owned_state = {
-		limit = {
-			NOT = { is_core_of = ROOT }
-		}
-		add_core_effect = yes
+	haw_core_eligible_states_pass = yes
+	haw_core_eligible_states_pass = yes
+	haw_core_eligible_states_pass = yes
+	haw_core_eligible_states_pass = yes
+	haw_core_eligible_states_pass = yes
+	haw_core_eligible_states_pass = yes
+	haw_core_eligible_states_pass = yes
+	haw_core_eligible_states_pass = yes
+	ROOT = {
+		add_ideas = coring_manpower_fix
+		country_event = fix_coring_manpower.1
 	}
 	fallout_update_custom_map_modes_effects = yes
 }
@@ -64,14 +102,60 @@ haw_add_forts_supply_roads = {
 		limit = { has_dlc = "No Step Back" }
 		every_owned_state = {
 			limit = { is_controlled_by = ROOT }
-			add_building_construction = {
-				type = supply_node
-				level = 1
-				instant_build = yes
-				province = {
-					all_provinces = yes
+			every_neighbor_state = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				ROOT = {
+					if = {
+						limit = {
+							has_railway_connection = {
+								build_only_on_allied = yes
+								start_state = PREV.PREV
+								target_state = PREV
+							}
+						}
+						build_railway = {
+							level = 5
+							build_only_on_allied = yes
+							start_state = PREV.PREV
+							target_state = PREV
+						}
+					}
 				}
 			}
+		}
+		haw_hubs_on_existing_roads = yes
+	}
+}
+
+haw_teleport_exiled_troops = {
+	capital_scope = {
+		save_event_target_as = haw_capital_state
+	}
+	every_state = {
+		limit = {
+			NOT = { is_controlled_by = ROOT }
+		}
+		teleport_armies = {
+			limit = {
+				OR = {
+					tag = ROOT
+					is_exiled_in = ROOT
+				}
+			}
+			to_state = event_target:haw_capital_state
+		}
+	}
+	if = {
+		limit = { is_government_in_exile = yes }
+		event_target:haw_capital_state = {
+			teleport_armies = {
+				limit = { tag = ROOT }
+			}
+		}
+	}
+	event_target:haw_capital_state = {
+		teleport_armies = {
+			limit = { is_exiled_in = ROOT }
 		}
 	}
 }
@@ -238,7 +322,46 @@ haw_reduce_subject_autonomy = {
 	add_political_power = 200
 }
 
+haw_fix_house_theorists = {
+	if = {
+		limit = { NOT = { has_country_flag = haw_cog_trait_fixed } }
+		if = {
+			limit = { has_character = haw_doctor_cog }
+			haw_doctor_cog = {
+				remove_advisor_role = { slot = theorist }
+				add_advisor_role = {
+					advisor = {
+						slot = theorist
+						idea_token = haw_char_doctor_cog
+						ledger = army
+						allowed = { always = yes }
+						visible = { always = yes }
+						cost = 0
+						can_be_fired = yes
+						traits = { haw_theorist_cog }
+						research_bonus = {
+							industry = 1.0
+							electronics = 1.0
+							air_doctrine = 0.5
+						}
+						ai_will_do = { factor = 0 }
+					}
+					activate = no
+				}
+			}
+		}
+		set_country_flag = haw_cog_trait_fixed
+	}
+}
+
 haw_grant_gated_cheats = {
+	if = {
+		limit = { NOT = { has_tech = haw_servebot_gear_unlock } }
+		set_technology = {
+			haw_servebot_gear_unlock = 1
+			popup = no
+		}
+	}
 	if = {
 		limit = {
 			OR = {
@@ -365,65 +488,6 @@ haw_add_officer_spirits = {
 	}
 }
 
-haw_spawn_handy_commanders = {
-	create_corps_commander = {
-		name = "Captain Coffee"
-		GFX = GFX_portrait_haw_servebot
-		skill = 9
-		attack_skill = 9
-		defense_skill = 9
-		planning_skill = 9
-		logistics_skill = 9
-		traits = {
-			# Vanilla command
-			old_guard brilliant_strategist inflexible_strategist politically_connected brave war_hero career_officer trait_cautious media_personality infantry_officer cavalry_officer armor_officer engineer_officer irregulars_officer militias_officer jaeger organizer cavalry_leader infantry_leader skilled_staffer trickster adaptable winter_expert trait_engineer panzer_leader commando panzer_expert combined_arms_expert cavalry_expert scavenger infantry_expert ambusher camouflage_expert guerilla_fighter
-			# Terrain
-			desert_fox desert_fox_II swamp_fox swamp_fox_II hill_fighter hill_fighter_II trait_mountaineer trait_mountaineer_II urban_assault_specialist urban_assault_specialist_II ranger ranger_II jungle_rat jungle_rat_II winter_specialist winter_specialist_II rad_rat rad_rat_II fortress_buster skirmisher paratrooper air_force_liaison naval_invader invader_ii naval_liason expert_improviser logistics_wizard
-			# OWB perks
-			strong_trait rooted_trait pain_train_trait strong_back_trait perceptive_trait awareness_trait sniper_trait night_person_trait enduring_trait survivalist_trait life_giver_trait aqua_boy_trait charismatic_trait local_leader_trait animal_friend_trait inspirational_trait intelligent_trait gun_nut_trait robotics_expert_trait nerd_rage_trait agile_trait gunslinger_trait lead_foot_trait ninja_trait lucky_trait idiot_savant_trait mysterious_stranger_trait bloody_mess_trait savage_leader_trait observant_leader_trait tough_leader_trait loved_leader_trait cunning_leader_trait nimble_leader_trait fortunate_leader_trait flexible_trait negotiator_trait cult_of_personality_trait smooth_talker_trait ferocious_loyalty_trait vigilant_recycler_trait junk_rounds_trait melee_hacker_trait light_touch_trait heavyweight_trait fight_the_power_trait sneering_imperialist_trait ranger_trait antivenom_trait one_man_army_trait
-			# OWB faction-generic
-			commando_trait tight_nuts_trait tech_wizard_trait targeting_computer_trait hot_blooded_trait hoarder_trait built_to_destroy_trait fast_metabolism skilled_trait bruiser_trait fast_shot_trait finesse_trait pyromaniac_trait camouflage_trait xenotech_expert_trait fortune_finder_trait
-		}
-	}
-	create_field_marshal = {
-		name = "Field Marshal Filter"
-		GFX = GFX_portrait_haw_servebot
-		skill = 9
-		attack_skill = 9
-		defense_skill = 9
-		planning_skill = 9
-		logistics_skill = 9
-		traits = {
-			old_guard brilliant_strategist inflexible_strategist politically_connected brave war_hero career_officer trait_cautious media_personality infantry_officer cavalry_officer armor_officer engineer_officer irregulars_officer militias_officer jaeger organizer cavalry_leader infantry_leader skilled_staffer trickster adaptable winter_expert trait_engineer panzer_leader commando panzer_expert combined_arms_expert cavalry_expert scavenger infantry_expert ambusher camouflage_expert guerilla_fighter
-			offensive_doctrine defensive_doctrine fast_planner thorough_planner unyielding_defender aggressive_assaulter organisational_leader inspirational_leader expert_delegator
-			desert_fox desert_fox_II swamp_fox swamp_fox_II hill_fighter hill_fighter_II trait_mountaineer trait_mountaineer_II urban_assault_specialist urban_assault_specialist_II ranger ranger_II jungle_rat jungle_rat_II winter_specialist winter_specialist_II rad_rat rad_rat_II fortress_buster skirmisher paratrooper air_force_liaison naval_invader invader_ii naval_liason expert_improviser logistics_wizard
-			strong_trait rooted_trait pain_train_trait strong_back_trait perceptive_trait awareness_trait sniper_trait night_person_trait enduring_trait survivalist_trait life_giver_trait aqua_boy_trait charismatic_trait local_leader_trait animal_friend_trait inspirational_trait intelligent_trait gun_nut_trait robotics_expert_trait nerd_rage_trait agile_trait gunslinger_trait lead_foot_trait ninja_trait lucky_trait idiot_savant_trait mysterious_stranger_trait bloody_mess_trait savage_leader_trait observant_leader_trait tough_leader_trait loved_leader_trait cunning_leader_trait nimble_leader_trait fortunate_leader_trait flexible_trait negotiator_trait cult_of_personality_trait smooth_talker_trait ferocious_loyalty_trait vigilant_recycler_trait junk_rounds_trait melee_hacker_trait light_touch_trait heavyweight_trait fight_the_power_trait sneering_imperialist_trait ranger_trait antivenom_trait one_man_army_trait
-			commando_trait tight_nuts_trait tech_wizard_trait targeting_computer_trait hot_blooded_trait hoarder_trait built_to_destroy_trait fast_metabolism skilled_trait bruiser_trait fast_shot_trait finesse_trait pyromaniac_trait camouflage_trait xenotech_expert_trait fortune_finder_trait
-		}
-	}
-	create_navy_leader = {
-		name = "Admiral Suds"
-		GFX = GFX_portrait_haw_servebot
-		skill = 9
-		attack_skill = 9
-		defense_skill = 9
-		maneuvering_skill = 9
-		coordination_skill = 9
-		traits = {
-			seawolf fleet_protector blockade_runner superior_tactician spotter fly_swatter ironside air_controller silent_hunter torpedo_expert lancer destroyer_leader loading_drill_master hunter_killer cruiser_captain search_pattern_expert lone_wolf concealment_expert mine_sweeper mine_layer smoke_screen_expert big_guns_expert ground_pounder safety_first marksman crisis_magician flight_deck_manager fighter_director
-			arctic_water_expert inshore_fighter blue_water_expert green_water_expert
-			old_guard_navy gentlemanly gunnery_expert chief_engineer navy_media_personality bold navy_career_officer battleship_adherent aviation_enthusiast naval_lineage
-			submarine_officer destroyer_officer cruiser_officer heavy_ship_officer carrier_officer
-		}
-	}
-	add_ace = {
-		name = "Wing"
-		surname = "Duster"
-		callsign = "Toast"
-		type = fighter_genius
-	}
-}
-
 haw_flw_take_initiative = {
 	if = {
 		limit = { original_tag = ATE }
@@ -513,10 +577,303 @@ haw_bos_add_slots = {
 haw_bos_zero_tension = {
 	set_temp_variable = { BOS_tension_to_add = -100 }
 	bos_change_tension = yes
+	NCR = {
+		set_temp_variable = { BOS_tension_to_add = -100 }
+		bos_change_tension = yes
+	}
+}
+
+haw_bos_max_tension = {
+	set_temp_variable = { BOS_tension_to_add = 100 }
+	bos_change_tension = yes
+	NCR = {
+		set_temp_variable = { BOS_tension_to_add = 100 }
+		bos_change_tension = yes
+	}
+}
+
+haw_bos_add_paladins = {
+	set_temp_variable = { BOS_train_paladins_num = 5 }
+	bos_train_paladins = yes
+}
+
+haw_bos_complete_rooms = {
+	if = {
+		limit = { has_decision = bos_underground_expansion_decision }
+		add_days_remove = {
+			decision = bos_underground_expansion_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_expansion_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_expansion_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_civilian_workshop_decision }
+		add_days_remove = {
+			decision = bos_underground_build_civilian_workshop_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_civilian_workshop_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_build_civilian_workshop_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_military_workshop_decision }
+		add_days_remove = {
+			decision = bos_underground_build_military_workshop_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_military_workshop_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_build_military_workshop_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_power_generator_decision }
+		add_days_remove = {
+			decision = bos_underground_build_power_generator_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_power_generator_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_build_power_generator_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_metal_generator_decision }
+		add_days_remove = {
+			decision = bos_underground_build_metal_generator_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_metal_generator_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_build_metal_generator_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_water_generator_decision }
+		add_days_remove = {
+			decision = bos_underground_build_water_generator_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_water_generator_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_build_water_generator_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_circuitry_generator_decision }
+		add_days_remove = {
+			decision = bos_underground_build_circuitry_generator_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_circuitry_generator_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_build_circuitry_generator_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_condense_civilian_workshop_decision }
+		add_days_remove = {
+			decision = bos_underground_condense_civilian_workshop_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_condense_civilian_workshop_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_condense_civilian_workshop_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_laboratory_decision }
+		add_days_remove = {
+			decision = bos_underground_build_laboratory_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_paladin_training_decision }
+		add_days_remove = {
+			decision = bos_underground_build_paladin_training_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_safety_department_decision }
+		add_days_remove = {
+			decision = bos_underground_build_safety_department_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_administration_centers_decision }
+		add_days_remove = {
+			decision = bos_underground_build_administration_centers_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_expeditionary_department_decision }
+		add_days_remove = {
+			decision = bos_underground_build_expeditionary_department_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_expeditionary_department_decision_2 }
+		add_days_remove = {
+			decision = bos_underground_build_expeditionary_department_decision_2
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_build_simulators_decision }
+		add_days_remove = {
+			decision = bos_underground_build_simulators_decision
+			days = -999
+		}
+	}
+	if = {
+		limit = { has_decision = bos_underground_dig_deeper_decision }
+		add_days_remove = {
+			decision = bos_underground_dig_deeper_decision
+			days = -999
+		}
+	}
+}
+
+haw_bos_power_elites = {
+	set_popularities = {
+		elites = 100
+		ruler = 0
+		people = 0
+		intellectuals = 0
+	}
+}
+
+haw_bos_power_ruler = {
+	set_popularities = {
+		elites = 0
+		ruler = 100
+		people = 0
+		intellectuals = 0
+	}
+}
+
+haw_bos_power_people = {
+	set_popularities = {
+		elites = 0
+		ruler = 0
+		people = 100
+		intellectuals = 0
+	}
+}
+
+haw_bos_power_intellectuals = {
+	set_popularities = {
+		elites = 0
+		ruler = 0
+		people = 0
+		intellectuals = 100
+	}
+}
+
+haw_ncr_vonc_kimball = {
+	set_variable = { ncr_vonc_kimball = 100 }
+	set_variable = { ncr_vonc_allgood = 0 }
+	set_variable = { ncr_vonc_hayes = 0 }
+	set_variable = { ncr_vonc_undecided = 0 }
+}
+
+haw_ncr_vonc_allgood = {
+	set_variable = { ncr_vonc_kimball = 0 }
+	set_variable = { ncr_vonc_allgood = 100 }
+	set_variable = { ncr_vonc_hayes = 0 }
+	set_variable = { ncr_vonc_undecided = 0 }
+}
+
+haw_ncr_election_dump_state = {
+	if = {
+		limit = { check_variable = { haw_ncr_cand = global.first_candidate_id } }
+		set_variable = { global.first_candidate_support_array^ncr_state_id = 100 }
+		set_variable = { global.second_candidate_support_array^ncr_state_id = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { haw_ncr_cand = global.second_candidate_id } }
+		set_variable = { global.first_candidate_support_array^ncr_state_id = 0 }
+		set_variable = { global.second_candidate_support_array^ncr_state_id = 100 }
+	}
+}
+
+haw_ncr_election_dump = {
+	set_temp_variable = { ncr_state_id = 1 }
+	haw_ncr_election_dump_state = yes
+	set_temp_variable = { ncr_state_id = 2 }
+	haw_ncr_election_dump_state = yes
+	set_temp_variable = { ncr_state_id = 3 }
+	haw_ncr_election_dump_state = yes
+	set_temp_variable = { ncr_state_id = 4 }
+	haw_ncr_election_dump_state = yes
+	set_temp_variable = { ncr_state_id = 5 }
+	haw_ncr_election_dump_state = yes
+	calculate_ncr_elections_winner_effect = yes
+}
+
+haw_ncr_election_allgood = {
+	set_temp_variable = { haw_ncr_cand = 1 }
+	haw_ncr_election_dump = yes
+}
+
+haw_ncr_election_kimball = {
+	set_temp_variable = { haw_ncr_cand = 2 }
+	haw_ncr_election_dump = yes
+}
+
+haw_ncr_election_hayes = {
+	set_temp_variable = { haw_ncr_cand = 3 }
+	haw_ncr_election_dump = yes
 }
 
 haw_brk_clear_raid = {
 	clr_global_flag = BRK_current_generic_raid
+}
+
+haw_ces_stress_min = {
+	set_variable = { CES_stress_level = 0 }
+	set_variable = { CES_monthly_stress = 0 }
+}
+
+haw_ces_stress_max = {
+	set_country_flag = CES_stress
+	clr_country_flag = CES_healthy
+	set_variable = { CES_stress_level = 5 }
+	set_variable = { CES_monthly_stress = 0 }
 }
 
 haw_world_tension_max = {

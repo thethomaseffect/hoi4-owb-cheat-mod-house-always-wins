@@ -112,4 +112,59 @@ haw_decisions = {
 			country_event = haw.15
 		}
 	}
+
+	haw_faction_ces = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			original_tag = CES
+		}
+		complete_effect = {
+			country_event = haw.17
+		}
+	}
+
+	haw_faction_ncr = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			original_tag = NCR
+			OR = {
+				has_country_flag = ncr_vote_no_confidence
+				has_country_flag = ncr_elections_gui_allowed_flag
+			}
+		}
+		complete_effect = {
+			country_event = haw.18
+		}
+	}
+}
+
+# Existing OWB category — still present on saves started without this mod.
+political_actions = {
+	haw_console_midsave = {
+		icon = generic_political_actions
+		fire_only_once = no
+		cost = 0
+		available = {
+			is_ai = no
+		}
+		visible = {
+			is_ai = no
+			NOT = { has_idea = haw_free_picks }
+		}
+		complete_effect = {
+			country_event = haw.1
+		}
+	}
 }

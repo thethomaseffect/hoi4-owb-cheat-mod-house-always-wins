@@ -69,22 +69,6 @@ ideas = {
 		}
 	}
 
-	haw_theorist = {
-		haw_professor_clank = {
-			picture = haw_handy
-			allowed = { always = yes }
-			cost = 0
-			removal_cost = 0
-			research_bonus = {
-				land_doctrine = 1.0
-				naval_doctrine = 1.0
-				air_doctrine = 1.0
-			}
-			traits = { haw_theorist }
-			ai_will_do = { factor = 0 }
-		}
-	}
-
 	haw_advisor = {
 		haw_mister_scoop = {
 			allowed = { always = yes }

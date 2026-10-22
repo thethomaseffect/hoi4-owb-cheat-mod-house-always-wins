@@ -36,9 +36,19 @@ ideas = {
 			removal_cost = 0
 			cancel_if_invalid = no
 			modifier = {
-				production_speed_buildings_factor = 2.0
-				industry_repair_factor = 2.0
-				free_building_slots_factor = 2.0
+				production_speed_buildings_factor = 50.0
+				production_speed_infrastructure_factor = 50.0
+				production_speed_industrial_complex_factor = 50.0
+				production_speed_arms_factory_factor = 50.0
+				production_speed_dockyard_factor = 50.0
+				production_speed_air_base_factor = 50.0
+				production_speed_radar_station_factor = 50.0
+				production_speed_bunker_factor = 50.0
+				production_speed_coastal_bunker_factor = 50.0
+				production_speed_anti_air_building_factor = 50.0
+				production_speed_supply_node_factor = 50.0
+				production_speed_rail_way_factor = 50.0
+				industry_repair_factor = 50.0
 			}
 			ai_will_do = { factor = 0 }
 		}
@@ -55,11 +65,13 @@ ideas = {
 			removal_cost = 0
 			cancel_if_invalid = no
 			modifier = {
-				industrial_capacity_factory = 2.0
-				industrial_capacity_dockyard = 2.0
+				industrial_capacity_factory = 20.0
+				industrial_capacity_dockyard = 20.0
 				production_factory_max_efficiency_factor = 2.0
-				production_factory_efficiency_gain_factor = 2.0
+				production_factory_efficiency_gain_factor = 10.0
+				production_factory_start_efficiency_factor = 1.0
 				line_change_production_efficiency_factor = 2.0
+				production_lack_of_resource_penalty_factor = -1.0
 				consumer_goods_factor = -0.8
 			}
 			ai_will_do = { factor = 0 }
@@ -86,8 +98,12 @@ ideas = {
 				conscription_factor = 5.0
 				monthly_population = 10.0
 				non_core_manpower = 1.0
-				special_forces_cap = 2.0
-				training_time_factor = -0.9
+				special_forces_cap = 5.0
+				special_forces_min = 500
+				# Cap: OWB spirits already go to about -0.3, SF extra to -0.33.
+				# Sum must stay above -1 or training % goes negative and freezes.
+				training_time_factor = -0.35
+				minimum_training_level = -0.5
 				supply_consumption_factor = -0.5
 				attrition = -0.9
 				amphibious_invasion = 2.0

@@ -1,5 +1,38 @@
 add_namespace = haw
 
+# Fires after adding the mod to an existing save (history and on_startup never ran).
+country_event = {
+	id = haw.0
+	title = haw.0.t
+	desc = haw.0.desc
+	picture = GFX_event_lucky_38
+	fire_only_once = yes
+
+	trigger = {
+		is_ai = no
+		NOT = { has_country_flag = haw_player_setup }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = haw_player_setup
+			haw_ensure_player_cheats = yes
+		}
+	}
+
+	option = {
+		name = haw.0.a
+		country_event = haw.1
+	}
+	option = {
+		name = haw.0.b
+	}
+}
+
 country_event = {
 	id = haw.1
 	title = haw.1.t
@@ -60,6 +93,16 @@ country_event = {
 		country_event = haw.2
 	}
 	option = {
+		name = haw.2.infra
+		haw_add_state_buildings = yes
+		country_event = haw.2
+	}
+	option = {
+		name = haw.2.roads
+		haw_add_forts_supply_roads = yes
+		country_event = haw.2
+	}
+	option = {
 		name = haw.2.f
 		country_event = haw.1
 	}
@@ -78,16 +121,6 @@ country_event = {
 		country_event = haw.3
 	}
 	option = {
-		name = haw.3.b
-		haw_add_state_buildings = yes
-		country_event = haw.3
-	}
-	option = {
-		name = haw.3.fortify
-		haw_add_forts_supply_roads = yes
-		country_event = haw.3
-	}
-	option = {
 		name = haw.3.c
 		haw_justify_all_neighbors = yes
 		country_event = haw.3
@@ -99,13 +132,7 @@ country_event = {
 	}
 	option = {
 		name = haw.3.e
-		capital_scope = {
-			teleport_armies = {
-				limit = {
-					is_exiled_in = ROOT
-				}
-			}
-		}
+		haw_teleport_exiled_troops = yes
 		country_event = haw.3
 	}
 	option = {
@@ -144,6 +171,12 @@ country_event = {
 	option = {
 		name = haw.4.doctrines
 		haw_unlock_all_doctrines = yes
+		country_event = haw.4
+	}
+	option = {
+		name = haw.4.implants
+		trigger = { has_tech = implant_tech_visibility_tech }
+		haw_unlock_implants = yes
 		country_event = haw.4
 	}
 	option = {
@@ -187,6 +220,11 @@ country_event = {
 	option = {
 		name = haw.5.commanders
 		haw_spawn_handy_commanders = yes
+		country_event = haw.5
+	}
+	option = {
+		name = haw.5.templates
+		haw_add_servebot_templates = yes
 		country_event = haw.5
 	}
 	option = {
@@ -370,6 +408,25 @@ country_event = {
 		country_event = haw.14
 	}
 	option = {
+		name = haw.14.tension_max
+		haw_bos_max_tension = yes
+		country_event = haw.14
+	}
+	option = {
+		name = haw.14.paladins
+		haw_bos_add_paladins = yes
+		country_event = haw.14
+	}
+	option = {
+		name = haw.14.rooms
+		haw_bos_complete_rooms = yes
+		country_event = haw.14
+	}
+	option = {
+		name = haw.14.power
+		country_event = haw.19
+	}
+	option = {
 		name = haw.14.close
 	}
 }
@@ -388,5 +445,136 @@ country_event = {
 	}
 	option = {
 		name = haw.15.close
+	}
+}
+
+country_event = {
+	id = haw.17
+	title = haw.17.t
+	desc = haw.17.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.17.min
+		haw_ces_stress_min = yes
+		country_event = haw.17
+	}
+	option = {
+		name = haw.17.max
+		haw_ces_stress_max = yes
+		country_event = haw.17
+	}
+	option = {
+		name = haw.17.close
+	}
+}
+
+country_event = {
+	id = haw.18
+	title = haw.18.t
+	desc = haw.18.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.18.vonc_kimball
+		trigger = { has_country_flag = ncr_vote_no_confidence }
+		haw_ncr_vonc_kimball = yes
+		country_event = haw.18
+	}
+	option = {
+		name = haw.18.vonc_allgood
+		trigger = { has_country_flag = ncr_vote_no_confidence }
+		haw_ncr_vonc_allgood = yes
+		country_event = haw.18
+	}
+	option = {
+		name = haw.18.elect_allgood
+		trigger = {
+			has_country_flag = ncr_elections_gui_allowed_flag
+			OR = {
+				check_variable = { global.first_candidate_id = 1 }
+				check_variable = { global.second_candidate_id = 1 }
+			}
+		}
+		haw_ncr_election_allgood = yes
+		country_event = haw.18
+	}
+	option = {
+		name = haw.18.elect_kimball
+		trigger = {
+			has_country_flag = ncr_elections_gui_allowed_flag
+			OR = {
+				check_variable = { global.first_candidate_id = 2 }
+				check_variable = { global.second_candidate_id = 2 }
+			}
+		}
+		haw_ncr_election_kimball = yes
+		country_event = haw.18
+	}
+	option = {
+		name = haw.18.elect_hayes
+		trigger = {
+			has_country_flag = ncr_elections_gui_allowed_flag
+			OR = {
+				check_variable = { global.first_candidate_id = 3 }
+				check_variable = { global.second_candidate_id = 3 }
+			}
+		}
+		haw_ncr_election_hayes = yes
+		country_event = haw.18
+	}
+	option = {
+		name = haw.18.close
+	}
+}
+
+country_event = {
+	id = haw.19
+	title = haw.19.t
+	desc = haw.19.desc
+	picture = GFX_event_lucky_38
+	is_triggered_only = yes
+
+	option = {
+		name = haw.19.elites
+		haw_bos_power_elites = yes
+		country_event = haw.19
+	}
+	option = {
+		name = haw.19.ruler
+		haw_bos_power_ruler = yes
+		country_event = haw.19
+	}
+	option = {
+		name = haw.19.people
+		haw_bos_power_people = yes
+		country_event = haw.19
+	}
+	option = {
+		name = haw.19.intellectuals
+		haw_bos_power_intellectuals = yes
+		country_event = haw.19
+	}
+	option = {
+		name = haw.19.back
+		country_event = haw.14
+	}
+}
+
+country_event = {
+	id = haw.16
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			haw_spawn_servebot_veterans = yes
+		}
+	}
+
+	option = {
+		name = haw.16.ok
 	}
 }

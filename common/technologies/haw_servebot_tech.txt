@@ -1,4 +1,14 @@
 technologies = {
+	haw_servebot_gear_unlock = {
+		research_cost = 1
+		start_year = 2275
+		allow = { always = no }
+		ai_will_do = { factor = 0 }
+		enable_equipments = {
+			haw_servebot_equipment_0
+		}
+	}
+
 	haw_servebot_infantry_unlock = {
 		research_cost = 1
 		start_year = 2275

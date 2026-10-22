@@ -340,4 +340,9 @@ haw_stockpile_unlocked = {
 		amount = 10000
 		producer = ROOT
 	}
+	add_equipment_to_stockpile = {
+		type = haw_servebot_equipment
+		amount = 10000
+		producer = ROOT
+	}
 }

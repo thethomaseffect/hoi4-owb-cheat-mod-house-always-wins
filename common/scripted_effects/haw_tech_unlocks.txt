@@ -384,3 +384,20 @@ haw_unlock_reward_techs = {
 		woo_power_armored_horses = 1
 	}
 }
+
+haw_unlock_implants = {
+	set_technology = {
+		popup = no
+		implant_tech_visibility_tech = 1
+		implant_tech_access_tech = 1
+		implant_safety_regulation_tech = 1
+		implant_signal_translation_tech = 1
+		implant_shock_absorbers_equipment_tech = 1
+		implant_infantry_supply_tech = 1
+		implant_militia_supply_tech = 1
+		implant_enforcer_supply_tech = 1
+		implant_spec_ops_supply_tech = 1
+		implant_power_armour_supply_tech = 1
+		implant_vehicles_supply_tech = 1
+	}
+}
